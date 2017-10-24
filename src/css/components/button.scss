@@ -1,6 +1,6 @@
 .gp-button{
-  background-color: $gray;
-  color: $white;
+  background-color: $gray !important;
+  color: $white !important;
   border: 2px solid $blue;
   padding: $verySmallSpacing $smallSpacing $verySmallSpacing $smallSpacing;
   border-radius: 10px;

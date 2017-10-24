@@ -1,0 +1,117 @@
+{{!-- pages/morel.hbs --}}
+
+{{#> layouts/base menu="nos-metiers" title="Groupe Poisson - Morel" }}
+
+  {{#*inline "breadcrumb-block"}}
+      <li><a href="/location">Pôle Location</a></li>
+      <li><a href="#">Morel</a></li>
+  {{/inline}}
+
+  {{#*inline "main-block"}}
+    
+    <section class="green-box">
+      <div class="container text-center wow fadeInUp">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="/assets/pictos_poles/location_blanc.png">
+          </div>
+          <div class="col-md-9">
+            <h1>
+              Morel
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="container wow fadeInUp">
+        <div class="row">
+          <div class="col-md-8 entite__article">
+            <h2>Lorem Ipsum</h2>
+            <img class="left" src="http://lorempixel.com/240/320/cats">
+            <p>
+              Cras lobortis nec nibh vitae rutrum. Proin sagittis nulla elementum quam luctus, vitae maximus orci blandit. Aliquam pharetra elementum tortor, eu ultrices quam fermentum in. Etiam a quam tincidunt, feugiat velit id, euismod mi. Morbi eros risus, varius consequat mattis sed, dignissim dictum felis. Donec consectetur ex sollicitudin condimentum blandit. Etiam quis venenatis dui. Morbi interdum, dolor a placerat rutrum, dolor dui mollis eros, ut placerat risus metus at libero. Cras rutrum, magna et suscipit pulvinar, massa turpis ornare eros, at fringilla metus quam vel arcu. Proin nec nisl rhoncus, vehicula nibh non, lacinia nibh. Donec ultricies volutpat ex. Vestibulum sed quam fringilla leo tincidunt rhoncus et vitae velit. Vestibulum pulvinar elementum gravida. Ut et ante tincidunt, tempus dui in, sollicitudin nisl. Morbi maximus, mauris eu efficitur sollicitudin, sapien metus sodales diam, ac porta metus arcu eu elit.
+            </p>
+            <h2>Lorem Ipsum</h2>
+            <img class="right" src="http://lorempixel.com/240/320/sports">
+            <p>
+              Mauris lobortis dolor vel mauris hendrerit scelerisque. Duis vel tellus vitae justo lacinia suscipit vel eget massa. Cras nunc lectus, molestie at sagittis gravida, tempus vel augue. Donec a risus urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc urna odio, facilisis ut velit vel, pretium feugiat lacus. Integer faucibus faucibus dui a rhoncus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut varius nunc et sapien placerat, sit amet efficitur ante iaculis. In mattis suscipit gravida. Sed augue neque, tincidunt consequat mauris ac, euismod vehicula ante. Integer tempor, diam a iaculis elementum, neque sem luctus odio, eget efficitur est velit ac nulla. Suspendisse semper nulla eu tortor tempus, a suscipit lacus accumsan. Etiam auctor enim vel nisi facilisis, nec euismod mauris feugiat.
+            </p>
+          </div>
+          <div class="col-md-4 entite__atout">
+            <img src="/assets/atouts_entites/morel.png">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="no-spacing">
+      <div class="container wow fadeInUp">
+        <div class="row green-box">
+          <div class="col-md-7 text-card">
+            <h2>Focus</h2>
+            <h5>La pelle caméléon</h5>
+            <p>
+              Rhoncus et vitae velit. Vestibulum pulvinar elementum gravida. Ut et ante tincidunt, tempus dui in, sollicitudin nisl. Morbi maximus, mauris eu efficitur sollicitudin, sapien metus sodales diam, ac porta metus arcu eu elit.
+            </p>
+          </div>
+          <div class="col-md-5 image-box">
+            <img src="http://lorempixel.com/400/400/sports/1">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="no-spacing">
+      <div class="container wow fadeInUp">
+        <div class="row white-box">
+          <div class="col-md-4 text-card">
+            <h2>Implantation</h2>
+            <p>
+              Ut et ante tincidunt, tempus dui in, sollicitudin nisl. Morbi maximus, mauris eu efficitur sollicitudin.
+            </p>
+          </div>
+          <div class="col-md-4 image-box">
+            <img src="/assets/carte.png">
+          </div>
+          <div class="col-md-4 entite__address">
+            {{>components/address site="morel"}}
+            <div class="button-wrapper">
+              <a class="gp-button gp-button--green-border" href="">Contacter Morel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="no-spacing">
+      <div class="container wow fadeInUp">
+        <div class="row light-green-box">
+          <div class="col-md-8 text-card">
+            <h2>A la une</h2>
+            <h5>Lorem ipsum</h5>
+            <p>
+              Ut et ante tincidunt, tempus dui in, sollicitudin nisl. Morbi maximus, mauris eu efficitur sollicitudin.
+            </p>
+            <div class="text-right">
+              <a href="/morel.html">Lire la suite</a>
+            </div>
+          </div>
+          <div class="col-md-4 green-box download-box">
+            <img src="https://unsplash.it/350/200/">
+            <div>
+              <a class="gp-button gp-button--gray gp-button--blue-border">Télécharger la plaquette</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+      
+  {{/inline}}
+{{/layouts/base}}

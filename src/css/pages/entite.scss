@@ -1,0 +1,40 @@
+.entite{
+  &__article{
+    h2{
+      clear: both !important;
+      color: $gray !important;
+      font-weight: 300 !important;
+    }
+
+    img{
+      margin-bottom: $smallSpacing !important;
+      &.left{
+        float: left !important;
+        margin-right: $smallSpacing;
+      }
+      &.right{
+        float: right !important;
+        margin-left: $smallSpacing;
+      }
+    }
+
+    p{
+      text-align: justify !important;
+      margin-bottom: $spacing;
+    }
+  }
+
+  &__atout{
+    img{
+      width: 100%;
+    }
+  }
+
+  &__address{
+    padding-top: 2*$spacing !important;
+    .button-wrapper{
+      padding-top: $spacing !important;
+      text-align: center;
+    }
+  }
+}

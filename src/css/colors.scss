@@ -4,6 +4,7 @@ $white: white;
 $gray: #58585A;
 $blue: #009CCA;
 $green: #A5C400;
+$light-green: #F6FAE9;
 
 $fontPrimaryColor: #3e3d40;
 
@@ -12,7 +13,8 @@ $colors: (
   white: $white,
   blue: $blue,
   green: $green,
-  gray: $gray
+  gray: $gray,
+  light-green: $light-green
 );
 
 // Map to get a font color for selected background.
@@ -20,10 +22,71 @@ $fontColors: (
   white: #3e3d40,
   blue: $white,
   green: $white,
-  gray: $white
+  gray: $white,
+  light-green: #3e3d40,
 );
 
 
 $spacing: 30px;
 $smallSpacing: $spacing/2;
 $verySmallSpacing: $spacing/4;
+
+@each $colorName, $color in $colors{
+  .#{$colorName}-box{
+    background-color: $color !important;
+    $fontColor: map-get($fontColors, $colorName);
+    color: $fontColor !important;
+    *{
+      color: $fontColor !important;
+    }
+  }
+}
+
+.image-box{
+  padding: 0 !important;
+  img{
+    width: 100%;
+  }
+}
+
+.text-card{
+  padding: $smallSpacing $spacing $smallSpacing $spacing;
+  h5{
+    padding-top: .8em;
+    padding-bottom: .3em;
+  }
+  p{
+    text-align: justify;
+  }
+  h5, p{
+    padding-left: 15%;
+    padding-right: 10%;
+  }
+}
+
+.download-box{
+  position: relative;
+  padding: 0;
+  img{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  >div{
+    position: absolute;
+    padding-bottom: $smallSpacing;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+  }
+}
+
+section{
+  padding-top: $spacing !important;
+  padding-bottom: $spacing !important;
+  &.no-spacing{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
