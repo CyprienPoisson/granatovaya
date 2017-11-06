@@ -1,0 +1,20 @@
+img{
+  margin-bottom: $smallSpacing !important;
+  max-width: 100%;
+  &.left{
+    float: left !important;
+    margin-right: $smallSpacing;
+  }
+  &.right{
+    float: right !important;
+    margin-left: $smallSpacing;
+  }
+
+  &.is-one-quarter{
+    width: 25%;
+  }
+
+  &.is-one-third{
+    width: 33%;
+  }
+}

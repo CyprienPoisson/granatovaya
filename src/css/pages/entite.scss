@@ -6,18 +6,6 @@
       font-weight: 300 !important;
     }
 
-    img{
-      margin-bottom: $smallSpacing !important;
-      &.left{
-        float: left !important;
-        margin-right: $smallSpacing;
-      }
-      &.right{
-        float: right !important;
-        margin-left: $smallSpacing;
-      }
-    }
-
     p{
       text-align: justify !important;
       margin-bottom: $spacing;
