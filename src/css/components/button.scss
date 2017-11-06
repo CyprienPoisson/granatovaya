@@ -1,19 +1,18 @@
 .gp-button{
-  background-color: $gray !important;
+  background-color: fade-out($gray, .3) !important;
   color: $white !important;
-  border: 2px solid $blue;
+  border: 1px solid $white;
   padding: $verySmallSpacing $smallSpacing $verySmallSpacing $smallSpacing;
   border-radius: 10px;
 
   font-size: 1.6rem !important;
   font-weight: 600;
 
-  opacity: .7 !important;
   transition: opacity 300ms;
   -webkit-font-smoothing: antialiased;
   cursor: pointer;
   &:focus, &:hover, &:active{
-    opacity: 1 !important;
+    background-color: $gray !important;
   }
 
   &--small{
@@ -24,16 +23,19 @@
 
   @each $colorName, $color in $colors{
     &--#{$colorName}{
-      background-color: $color !important;
+      background-color: fade-out($color, .3) !important;
       $fontColor: map-get($fontColors, $colorName);
       color: $fontColor !important;
-      border-color: $fontColor !important;
+      // border-color: $fontColor !important;
+      &:focus, &:hover, &:active{
+        background-color: $color !important;
+      }
     }
   }
 
   @each $colorName, $color in $colors{
     &--#{$colorName}-border{
-      border-color: $color !important;
+      // border-color: $color !important;
     }
   }
 
