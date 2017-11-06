@@ -5,6 +5,21 @@ $gray: #58585A;
 $blue: #009CCA;
 $green: #A5C400;
 $light-green: #F6FAE9;
+// TO BE USED FROM NOW ON
+$green1: #A5C400;
+$green2: #ACCC3D;
+$green3: #c1d96e;
+$green4: #f7faec;
+
+$gray1: #58585a;
+$gray2: #79797b;
+$gray3: #9b9b9c;
+$gray4: #f2f2f2;
+
+$blue1: #009cca;
+$blue2: #33b0d5;
+$blue3: #66c4df;
+$blue4: #ebf7fb;
 
 $fontPrimaryColor: #3e3d40;
 
@@ -14,7 +29,22 @@ $colors: (
   blue: $blue,
   green: $green,
   gray: $gray,
-  light-green: $light-green
+  light-green: $light-green,
+
+  green1: $green1,
+  green2: $green2,
+  green3: $green3,
+  green4: $green4,
+  
+  gray1: $gray1,
+  gray2: $gray2,
+  gray3: $gray3,
+  gray4: $gray4,
+
+  blue1: $blue1,
+  blue2: $blue2,
+  blue3: $blue3,
+  blue4: $blue4,
 );
 
 // Map to get a font color for selected background.
@@ -24,6 +54,21 @@ $fontColors: (
   green: $white,
   gray: $white,
   light-green: #3e3d40,
+
+  green1: $white,
+  green2: $white,
+  green3: $white,
+  green4: $gray2,
+
+  gray1: $white,
+  gray2: $white,
+  gray3: $gray1,
+  gray4: $gray2,
+  
+  blue1: $white,
+  blue2: $white,
+  blue3: $white,
+  blue4: $gray2,
 );
 
 

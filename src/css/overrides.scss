@@ -190,3 +190,10 @@ body.groupepoisson{
 @import "pages/offres-emploi";
 @import "pages/pole";
 @import "pages/recrutement";
+
+
+@import 'typography';
+
+*{
+  font-family: 'Roboto', sans-serif !important;
+}
