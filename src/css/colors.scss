@@ -116,14 +116,13 @@ $verySmallSpacing: $spacing/4;
     display: block;
     width: 100%;
     height: auto;
-    margin:0 !important;
   }
   >div{
     position: absolute;
     padding-bottom: $smallSpacing;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 20px;
     text-align: center;
   }
 }
