@@ -1,27 +1,40 @@
-.is-size-1{
-  font-size: 2.8rem !important;
+
+
+.title{
+  font-family: 'Roboto', sans-serif !important;
+  &.is-black{
+    font-weight: 900 !important;
+  }
+  &.is-bold{
+    font-weight: 700 !important;
+  }
+  &.is-light{
+    font-weight: 300 !important;
+  }
+  &.is-size-1{
+    font-size: 4rem !important;
+  }
+  &.is-size-2{
+    font-size: 2rem !important;
+  }
+  &.is-size-3{
+    font-size: 1.5rem !important;
+  }
+  &.is-size-4{
+    font-size: 1.2rem !important;
+  }
 }
 
-.is-size-2{
-  font-size: 2rem !important;
-}
-
-.is-size-3{
-  font-size: 1.5rem !important;
-}
-
-.has-text-weight-bold{
-  font-weight: 700 !important;
-}
-
-.has-text-weight-semibold{
-  font-weight: 500 !important;
-}
-
-.has-text-weight-normal{
-  font-weight: 400 !important;
-}
-
-.has-text-weight-light{
-  font-weight: 300 !important;
+.text{
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+  font-weight: normal !important;
+  &.bold{
+    font-weight: bold !important;
+  }
+  &.is-size-1{
+    font-size: 1rem !important;
+  }
+  &.is-size-2{
+    font-size: .85rem !important;
+  }
 }

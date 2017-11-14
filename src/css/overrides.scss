@@ -3,13 +3,17 @@
 @import 'colors';
 
 
+html{
+  font-size: 18px !important;
+  
+    @include mobile{
+      font-size: 12px !important;
+    }
+}
+
 body.groupepoisson{
   background-color: white !important;
-  font-size: 18px;
-
-  @include mobile{
-    font-size: 12px !important;
-  }
+  font-size: inherit !important;
 
   .dropdown-menu{
     left: -35px;
