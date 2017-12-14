@@ -180,15 +180,15 @@ body.groupepoisson{
 
 
 
-
+@import 'typography';
 
 
 @import "components/address";
 @import "components/breadcrumb";
 @import "components/button";
 @import "components/cards";
+@import "components/content";
 @import "components/google-map";
-@import "components/image";
 @import "components/poles-blocks";
 @import "components/title-section";
 
@@ -201,8 +201,6 @@ body.groupepoisson{
 @import "pages/pole";
 @import "pages/recrutement";
 
-
-@import 'typography';
 
 *{
   font-family: 'Roboto', sans-serif !important;

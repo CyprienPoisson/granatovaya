@@ -1,0 +1,58 @@
+.has-content{
+  padding-top: $spacing;
+}
+.content{
+
+  h1,h2,h3,h4,h5,h6{
+    margin-top: 0 !important;
+    margin-bottom: 1em !important;
+  }
+
+  p{
+    @extend .text;
+    @extend .is-size-2;
+    margin-top: 0 !important;
+    text-align: justify !important;
+    margin-bottom: $spacing !important;
+    hyphens: auto;
+  }
+
+  img{
+    margin-bottom: $spacing !important;
+    max-width: 100%;
+    &.left{
+      float: left !important;
+      margin-right: $spacing;
+    }
+    &.right{
+      float: right !important;
+      margin-left: $spacing;
+    }
+  
+    &.is-one-quarter{
+      width: 25%;
+    }
+  
+    &.is-one-third{
+      width: 33%;
+    }
+    
+    &.is-half{
+      width: 50%;
+    }
+  }
+
+  ul{
+    clear: both;
+    margin-top: 0 !important;
+    margin-bottom: $spacing !important;
+    padding-left: $spacing !important;
+    li{
+      @extend .text;
+      @extend .is-size-2;
+      list-style: disc !important;
+      padding-bottom: .5em;
+      hyphens: auto;
+    }
+  }
+}
