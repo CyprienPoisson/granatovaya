@@ -5,7 +5,7 @@
   padding: $verySmallSpacing $smallSpacing $verySmallSpacing $smallSpacing;
   border-radius: 10px;
 
-  font-size: 1.2rem !important;
+  font-size: .9rem !important;
   font-weight: 600;
 
   transition: opacity 300ms;
@@ -16,7 +16,7 @@
   }
 
   &--small{
-    font-size: 1rem !important;
+    font-size: .7rem !important;
     font-weight: 600;
     letter-spacing: -0.05em !important;
   }
