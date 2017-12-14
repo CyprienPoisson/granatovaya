@@ -30,7 +30,7 @@ body.groupepoisson{
   }
 
   ul.sf-menu > li > ul > li > ul.dropdown-menu.submenu{
-    width: 180px !important;
+    min-width: 200px !important;
   }
 
   ul.sf-menu li > a{
@@ -61,20 +61,46 @@ body.groupepoisson{
     }
   }
 
-  h1.navbar-brand{
-
-    margin-top: 10px;
-    height: 60px;
-    overflow: hidden;
-
-    .navbar-brand__logo-groupe-poisson{
-      background-image: url('/assets/logos/groupe_poisson.jpg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-color: transparent;
-      height:60px;
-      width:250px;
+  .stuck_container{
+    
+    .navbar{
+      margin-bottom: 0 !important;
+      height: 60px;
     }
+
+    .navbar-nav{
+      @include desktop(){
+        margin-top: 18px;
+        font-size: 15px !important;
+        >li>a{
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+      }
+    }
+    
+    h1.navbar-brand{
+
+      margin-top: 10px !important;
+      height: 60px;
+      overflow: hidden;
+
+      .navbar-brand__logo-groupe-poisson{
+        background-image: url('/assets/logos/groupe_poisson.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        height:60px;
+        width:250px;
+      }
+    }
+
+    .dropdown-menu{
+      box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+      font-size: 15px !important;
+      z-index: 1;
+    }
+    
   }
 
   .stuck_container.isStuck{
@@ -87,9 +113,20 @@ body.groupepoisson{
       margin-bottom: 0 !important;
     }
 
+    .navbar-nav{
+      @include desktop(){
+        margin-top: 18px !important;
+        font-size: 15px !important;
+        >li>a{
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+      }
+    }
+
     h1.navbar-brand{
 
-      margin-top: 0;
+      margin-top: -7px;
       height: 60px;
       overflow: hidden;
 
