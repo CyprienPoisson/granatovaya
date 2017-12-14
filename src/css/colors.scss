@@ -95,7 +95,8 @@ $verySmallSpacing: $spacing/4;
 }
 
 .text-card{
-  padding: $smallSpacing $spacing $smallSpacing $spacing;
+  padding-top: $smallSpacing;
+  padding-bottom: $smallSpacing;
   h5{
     padding-top: .8em;
     padding-bottom: .3em;
@@ -104,8 +105,8 @@ $verySmallSpacing: $spacing/4;
     text-align: justify;
   }
   h5, p{
-    padding-left: 15%;
-    padding-right: 10%;
+    // padding-left: 15%;
+    // padding-right: 10%;
   }
 }
 
