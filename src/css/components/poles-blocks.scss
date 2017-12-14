@@ -1,0 +1,42 @@
+.pole-blocks{
+  &__title-wrapper{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__title{
+    flex: 0 0 auto;
+  }
+  &__picto{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: opacity .4s;
+    &.travaux{
+      background-color: white;
+      background-image: url('/assets/pictos_poles/travaux.png');
+    }
+    &.location{
+      background-color: white;
+      background-image: url('/assets/pictos_poles/location.png');
+    }
+    &.services{
+      background-color: white;
+      background-image: url('/assets/pictos_poles/services.png');
+    }
+    &:hover{
+      opacity: 0;
+    }
+  }
+}
