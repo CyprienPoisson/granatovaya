@@ -1,0 +1,13 @@
+function isUpdateService(){
+  return auth.uid === 'update-service';
+}
+
+path / {
+  read(){ false }
+  write(){ false }
+}
+
+path /content/news {
+  read(){ true }
+  write(){ isUpdateService() }
+}
