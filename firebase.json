@@ -5,6 +5,10 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {"source": "/toutes-nos-actualites.html", "function": "newsIndex"},
+      {"source": "/actualites/**", "function": "news"}
     ]
   },
   "database": {

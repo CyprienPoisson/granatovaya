@@ -3,6 +3,7 @@
 const gulp = require('gulp');
 const handlebars = require('gulp-compile-handlebars');
 const rename = require('gulp-rename');
+const clean = require('gulp-clean');
 
 var sass = require('gulp-sass');
 const connect = require('gulp-connect');
@@ -69,14 +70,39 @@ gulp.task('build:html', () => {
 });
 
 /**
- * Full build process
+ * Copy files needed for functions in functions dir
  */
-gulp.task('build:full', ['copy:monster', 'copy:assets', 'build:sass', 'build:html']);
+gulp.task('copy:functions', ['copy:monster', 'copy:assets', 'build:sass', 'build:html'], ()=>{
+  return gulp.src([
+      './dist/toutes-nos-actualites.html',
+      './dist/actualite.html',
+      './dist/offres-emploi.html',
+      './dist/offre-emploi.html',
+    ], {base: './dist'})
+    .pipe(gulp.dest('./functions/pages'));
+});
 
 /**
- * Partial build. Only process source files. (HTML & SASS)
+ * Cleanup dist dir
  */
-gulp.task('build:sources', ['build:sass', 'build:html']);
+gulp.task('cleanup:dist', ['copy:functions'], ()=>{
+  return gulp.src([
+      './dist/toutes-nos-actualites.html',
+      './dist/actualite.html',
+      './dist/offres-emploi.html',
+      './dist/offre-emploi.html',
+    ], {base: './dist', read: false})
+    .pipe(clean());
+});
+
+
+/**
+ * Full build process
+ */
+gulp.task('build:full', ['cleanup:dist'], ()=>{
+  // Reload after build
+  return gulp.src('./dist/*').pipe(connect.reload());
+});
 
 
 // SERVE
@@ -84,40 +110,17 @@ gulp.task('build:sources', ['build:sass', 'build:html']);
 /**
  * Serve files from /dist
  */
-gulp.task('http:serve', function() {
+gulp.task('http:serve', ['build:full'], function() {
   connect.server({
     root: 'dist',
     livereload: true
   });
 });
 
-/**
- * Livereload files
- */
-gulp.task('http:reload', function () {
-  gulp.src('./dist/*').pipe(connect.reload());
-});
-
-
-// WATCH
-
-
-/**
- * Triggers livereload on file changes
- */
-gulp.task('watch:reload', ['build:full'], function () {
-  gulp.watch(['./dist/**/*'], ['http:reload']);
-});
-
-/**
- * Triggers sources build on file changes.
- */
-gulp.task('watch:sources', ['build:full'], function () {
-  gulp.watch(['./src/**/*'], ['build:sources']);
-});
-
 
 // DEFAULT
 
-gulp.task('default', ['build:full', 'http:serve', 'watch:sources', 'watch:reload']);
+gulp.task('default', ['http:serve'], ()=>{
+  gulp.watch(['./src/**/*'], ['build:full']);
+});
 

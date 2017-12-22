@@ -1,5 +1,6 @@
 const functions = require('firebase-functions');
 const admin = require("firebase-admin");
+const toSlug = require('./to-slug').toSlug;
 
 let firebaseConfig = functions.config().firebase;
 firebaseConfig.databaseAuthVariableOverride = {
@@ -9,7 +10,7 @@ firebaseConfig.databaseAuthVariableOverride = {
 admin.initializeApp(firebaseConfig);
 
 exports.updateNews = functions.https.onRequest((req, res) => {
-    
+  
   updateNews(req.body)
   .then(result=>{
     let data = JSON.stringify(result);
@@ -33,6 +34,8 @@ function updateNews(news){
   )
   if( news.Published__c ){
     return newsRef.set({
+      id: news.Name,
+      slug: toSlug(news.Title__c),
       title: news.Title__c,
       content,
     });
