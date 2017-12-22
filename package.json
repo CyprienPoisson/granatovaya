@@ -4,6 +4,7 @@
   "description": "Groupe Poisson website generator.",
   "main": "index.js",
   "devDependencies": {
+    "firebase-bolt": "^0.8.2",
     "firebase-tools": "^3.10.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
