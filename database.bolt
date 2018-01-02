@@ -2,21 +2,17 @@ function isUpdateService(){
   return auth.uid === 'update-service';
 }
 
-function isServeService(){
-  return auth.uid === 'serve-service';
-}
-
 path / {
   read(){ false }
   write(){ false }
 }
 
 path /content/news {
-  read(){ isServeService() }
+  read(){ isUpdateService() }
   write(){ isUpdateService() }
 }
 
 path /content/jobOffers {
-  read(){ isServeService() }
+  read(){ isUpdateService() }
   write(){ isUpdateService() }
 }

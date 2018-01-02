@@ -5,7 +5,7 @@ const fs = require("fs");
 
 let firebaseConfig = functions.config().firebase;
 firebaseConfig.databaseAuthVariableOverride = {
-  uid: "serve-service",
+  uid: "update-service",
 };
 
 admin.initializeApp(firebaseConfig, 'pages');
