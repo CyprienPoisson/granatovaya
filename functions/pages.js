@@ -33,7 +33,22 @@ function newsIndex(){
     let page = fs.readFileSync("./pages/toutes-nos-actualites.html").toString();
     let template = fs.readFileSync("./templates/news-list.hbs").toString();
     template = Handlebars.compile(template);
-    newsList = Object.keys(newsList).map(k=>newsList[k]);
+    newsList = Object.keys(newsList).map(k=>newsList[k])
+    .sort((a, b)=>{
+      if( a.createdAt && b.createdAt ){
+        return a.createdAt - b.createdAt;
+      }
+      else if( a.createdAt && !b.createdAt){
+        return 1;
+      }
+      else if( !a.createdAt && b.createdAt){
+        return -1;
+      }
+      else if( !a.createdAt && !b.createdAt){
+        return a.id - b.id;
+      }
+    })
+    .reverse();
     newsList = template({newsList});
     page = page.replace('NEWS_LIST', newsList);
     return page;
