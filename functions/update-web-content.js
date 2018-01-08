@@ -63,6 +63,7 @@ function updateWebContent(webContent){
       label: webContent.JobOfferLabel__c || null,
       contract: webContent.JobOfferContract__c || null,
       place: webContent.JobOfferPlace__c || null,
+      createdAt: webContent.CreatedDate,
     });
   }
   else{
