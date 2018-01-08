@@ -31,6 +31,7 @@ gulp.task('copy:monster', () => {
 gulp.task('copy:assets', () => {
   return gulp.src([
       './src/assets/**/*',
+      './src/docs/**/*',
     ], {base: './src/'})
     .pipe(gulp.dest('./dist/'));
 });
