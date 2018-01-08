@@ -30,7 +30,6 @@
 
 .gp-card{
   @include large{
-    height: 310px !important;
     overflow:hidden !important;
     &__inner{
 
