@@ -320,3 +320,12 @@ exports.toSlug = function(slug){
   slug = slug.replace( /[^0-9a-z]+$/gi, '');
   return slug;
 };
+
+exports.toUnderscoredSlug = function(slug){
+  slug = removeDiacritics(slug);
+  slug = slug.toLowerCase();
+  slug = slug.replace( /[^0-9a-z]+/gi, '_');
+  slug = slug.replace( /^[^0-9a-z]+/gi, '');
+  slug = slug.replace( /[^0-9a-z]+$/gi, '');
+  return slug;
+};
