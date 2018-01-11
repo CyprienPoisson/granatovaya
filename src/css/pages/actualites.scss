@@ -1,7 +1,55 @@
 .actualites{
   &__title-section{
-    @extend .title-section;
     background-color: $green;
     color: $white;
+  }
+
+  &__articles-list{
+    .actualites{
+      &__article{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        margin-top: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $gray2;
+      }
+      &__image{
+        flex: 0 0 auto;
+        width: 120px;
+        margin-right: 20px;
+      }
+      &__content{
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+      }
+      &__header{
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: row;
+      }
+      &__title{
+        flex: 1 1 auto;
+      }
+      &__subsidiary{
+        flex: 0 0 auto;
+        > img{
+          height: 40px;
+        }
+      }
+      &__excerpt{
+        display: block;
+        padding-top: 10px;
+        max-height: 75px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &__link{
+        display: block;
+        text-align: right;
+      }
+    }
   }
 }
