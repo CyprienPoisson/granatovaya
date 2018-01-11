@@ -75,5 +75,9 @@
       overflow: hidden;
       color: $fontPrimaryColor !important;
     }
+
+    >div >div.row{
+      padding-bottom: 40px;
+    }
   }
 }
