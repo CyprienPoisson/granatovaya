@@ -1,7 +1,68 @@
 .actualites{
   &__title-section{
-    @extend .title-section;
     background-color: $green;
     color: $white;
+  }
+
+  &__articles-list{
+    .actualites{
+      &__article{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        margin-top: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $gray2;
+      }
+      &__image{
+        flex: 0 0 auto;
+        width: 120px;
+        margin-right: 20px;
+      }
+      &__content{
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+      }
+      &__header{
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: row;
+      }
+      &__title{
+        flex: 1 1 auto;
+      }
+      &__subsidiary{
+        flex: 0 0 auto;
+        > img{
+          height: 40px;
+        }
+      }
+      &__excerpt{
+        display: block;
+        position: relative;
+        padding-top: 10px;
+        max-height: 70px;;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &-mask{
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 30px;
+          background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+        }
+      }
+      &__link{
+        display: block;
+        padding-top: 10px;
+        text-align: right;
+      }
+    }
   }
 }

@@ -1,18 +1,25 @@
-{{#each newsList}}
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1 actualites__articles-list">
+<div class="row">
+  <div class="col-md-10 col-md-offset-1 actualites__articles-list">
+    {{#each newsList}}
       <div class="actualites__article">
-        <h2>{{title}}</h2>  
-        <p>
-          {{excerpt}}
-        </p>
-
-        <div class="actualites-list__link">
-          <a href="" class="gp-button gp-button--gray gp-button--small">Lire la suite</a>
+        <div class="actualites__image">
+          <img src="{{firstImage}}">
         </div>
-
+        <div class="actualites__content">
+          <div class="actualites__header">
+            <div class="actualites__title title is-size-3 is-bold">{{title}}</div>
+            <div class="actualites__subsidiary">
+              <img src="/assets/logos/{{subsidiaryLogo subsidiary}}">
+            </div>
+          </div>
+          <div class="actualites__excerpt text is-size-2">{{excerpt}}
+            <div class="actualites__excerpt-mask"></div>
+          </div>
+          <div class="actualites__link">
+            <a href="/actualites/{{id}}/{{slug}}.html" class="gp-button gp-button--gray gp-button--small">Lire la suite</a>
+          </div>
+        </div>
       </div>
-
-    </div>
+    {{/each}}
   </div>
-{{/each}}
+</div>

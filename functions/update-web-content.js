@@ -1,6 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require("firebase-admin");
 const toSlug = require('./to-slug').toSlug;
+const cheerio = require('cheerio');
 
 const recordTypes = {
   '0121p000000wrPFAAY': {
@@ -44,25 +45,39 @@ function updateWebContent(webContent){
   let ref = db.ref(`content/${recordType.key}/${webContent.Name}`);
 
   let content = webContent.Content__c;
+
   if(typeof content === 'string'){
     content = content.replace(
       /https\:\/\/[^\/]*.force.com\/servlet\/rtaImage\?/g,
       'https://groupepoisson.secure.force.com/website/servlet/rtaImage?'
-    )
+    );
   }
   else{
     content = '';
   }
+
+  const $ = cheerio.load(content);
+
+  let firstImage = $('img').first().attr('src');
+
+  let excerpt = $('*').contents().map(function() {
+    return (this.type === 'text') ? ($(this).text() + ' ') : '';
+  }).get().join('').slice(0, 300).trim();
+
   if( webContent.Published__c ){
     return ref.set({
       id: webContent.Name,
+
+      content,
+      contract: webContent.JobOfferContract__c || null,
+      excerpt: excerpt || null,
+      firstImage: firstImage || null,
+      label: webContent.JobOfferLabel__c || null,
+      place: webContent.JobOfferPlace__c || null,
       slug: toSlug(webContent.Title__c),
       subsidiary: webContent.Subsidiary__c || null,
       title: webContent.Title__c,
-      content,
-      label: webContent.JobOfferLabel__c || null,
-      contract: webContent.JobOfferContract__c || null,
-      place: webContent.JobOfferPlace__c || null,
+      
       createdAt: webContent.CreatedDate,
     });
   }
