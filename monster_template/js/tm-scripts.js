@@ -1,5 +1,5 @@
 function include(scriptUrl) {
-    document.write('<script src="' + scriptUrl + '"></script>');
+    document.write('<script src="/' + scriptUrl + '"></script>');
 }
 
 function isIE() {
@@ -75,7 +75,7 @@ include('js/jquery.easing.1.3.js');
 ;
 (function ($) {
     function include(url) {
-	document.write('<script src="js/' + url + '"></script>');
+	document.write('<script src="/js/' + url + '"></script>');
 	return false;
 }
 	include('superfish.js');
