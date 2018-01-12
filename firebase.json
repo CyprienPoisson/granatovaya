@@ -7,8 +7,8 @@
       "**/node_modules/**"
     ],
     "rewrites": [
-      {"source": "/toutes-nos-actualites.html", "function": "newsIndex"},
-      {"source": "/actualites/**", "function": "news"}
+      {"source": "/toutes-nos-actualites.html", "function": "content"},
+      {"source": "/actualites/**", "function": "content"}
     ]
   },
   "database": {

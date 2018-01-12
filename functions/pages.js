@@ -26,22 +26,8 @@ firebaseConfig.databaseAuthVariableOverride = {
 
 admin.initializeApp(firebaseConfig, 'pages');
 
-exports.newsIndex = functions.https.onRequest((req, res) => {
-    
-  newsIndex(req.body)
-  .then(result=>{
-    let data = result;
-    res.status(200).send(data);
-  })
-  .catch(error=>{
-    console.log(error);
-    let data = JSON.stringify(error);
-    res.status(400).send(data);
-  });
 
-});
-
-function newsIndex(){
+exports.newsIndex = function newsIndex(req, res){
   let db = admin.database();
   let newsRef = db.ref(`content/news`);
   return newsRef.once('value').then(s=>{
@@ -73,5 +59,11 @@ function newsIndex(){
     newsList = template({newsList});
     page = page.replace('NEWS_LIST', newsList);
     return page;
-  });
+  })
+  .then(page => res.send(page));
+}
+
+exports.news = function news(req, res){
+  console.log(req);
+  return req.params.id;
 }
