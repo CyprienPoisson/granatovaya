@@ -1,96 +1,133 @@
-<script type="text/javascript">
-  function submitFormToSF(){
-    var firstname = document.querySelector('#sfws_firstname');
-    try{
-      firstname = firstname.value;
-    }
-    catch(e){
-      firstname = '';
-    }
-    var lastname = document.querySelector('#sfws_lastname');
-    try{
-      lastname = lastname.value;
-    }
-    catch(e){
-      lastname = '';
-    }
-    var email = document.querySelector('#sfws_email');
-    try{
-      email = email.value;
-    }
-    catch(e){
-      email = '';
-    }
-    var phone = document.querySelector('#sfws_phone');
-    try{
-      phone = phone.value;
-    }
-    catch(e){
-      phone = '';
-    }
-    var message = document.querySelector('#sfws_message');
-    try{
-      message = message.value;
-    }
-    catch(e){
-      message = '';
-    }
-    var type = document.querySelector('#sfws_type');
-    try{
-      type = type.value;
-    }
-    catch(e){
-      type = '';
-    }
-    var source = document.querySelector('#sfws_source');
-    try{
-      source = source.value;
-    }
-    catch(e){
-      source = '';
-    }
+<div class="form">
+  <script type="text/javascript">
+    function submitFormToSF(){
+      document.querySelector('#sfws_loading').style.display = 'block';
+      document.querySelector('#sfws_form').style.display = "none";
 
-    var body = JSON.stringify({
-      firstname: firstname,
-      lastname: lastname,
-      email: email,
-      phone: phone,
-      message: message,
-      type: type,
-      source: source
-    });
+      var firstname = document.querySelector('#sfws_firstname');
+      try{
+        firstname = firstname.value;
+      }
+      catch(e){
+        firstname = '';
+      }
+      var lastname = document.querySelector('#sfws_lastname');
+      try{
+        lastname = lastname.value;
+      }
+      catch(e){
+        lastname = '';
+      }
+      var email = document.querySelector('#sfws_email');
+      try{
+        email = email.value;
+      }
+      catch(e){
+        email = '';
+      }
+      var phone = document.querySelector('#sfws_phone');
+      try{
+        phone = phone.value;
+      }
+      catch(e){
+        phone = '';
+      }
+      var message = document.querySelector('#sfws_message');
+      try{
+        message = message.value;
+      }
+      catch(e){
+        message = '';
+      }
+      var type = document.querySelector('#sfws_type');
+      try{
+        type = type.value;
+      }
+      catch(e){
+        type = '';
+      }
+      var source = document.querySelector('#sfws_source');
+      try{
+        source = source.value;
+      }
+      catch(e){
+        source = '';
+      }
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "https://groupepoisson.secure.force.com/website/services/apexrest/WebSubmission/", true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(body);
-    
-    return false;
-  }
-</script>
-<form onsubmit="return submitFormToSF();" class="form">
-  <div class="row">
-    <div class="col-md-2">
-      <input id="sfws_firstname" type="text" placeholder="Prénom">
+      var body = JSON.stringify({
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        phone: phone,
+        message: message,
+        type: type,
+        source: source
+      });
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "https://groupepoisson.secure.force.com/website/services/apexrest/WebSubmission/", true);
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.onreadystatechange = function() {
+        if (xhttp.readyState === XMLHttpRequest.DONE) {
+          if (xhttp.status === 200) {
+            document.querySelector('#sfws_form').remove();
+            document.querySelector('#sfws_loading').style.display = 'none';
+            document.querySelector('#sfws_success').style.display = 'block';
+          }
+          else{
+            document.querySelector('#sfws_form').style.display = "block";
+            document.querySelector('#sfws_loading').style.display = 'none';
+            document.querySelector('#sfws_error').style.display = 'block';
+          }
+        }
+      };
+      xhttp.send(body);
+      
+      return false;
+    }
+  </script>
+  <form id="sfws_form" onsubmit="return submitFormToSF();">
+    <div id="sfws_error" class="row" style="display:none;">
+      <div class="col-md-12">
+        Une erreur s'est produite, veuillez vérifier vos informations, en particulier votre email.
+      </div>
     </div>
-    <div class="col-md-3">
-      <input id="sfws_lastname" type="text" placeholder="Nom">
+    <div class="row">
+      <div class="col-md-2">
+        <input id="sfws_firstname" type="text" placeholder="Prénom">
+      </div>
+      <div class="col-md-3">
+        <input id="sfws_lastname" type="text" placeholder="Nom">
+      </div>
+      <div class="col-md-4">
+        <input id="sfws_email" type="text" placeholder="Email">
+      </div>
+      <div class="col-md-3">
+        <input id="sfws_phone" type="text" placeholder="Téléphone">
+      </div>
     </div>
-    <div class="col-md-4">
-      <input id="sfws_email" type="text" placeholder="Email">
+    <div class="row">
+      <div class="col-md-12">
+        <textarea id="sfws_message" placeholder="Votre message"></textarea>
+      </div>
     </div>
-    <div class="col-md-3">
-      <input id="sfws_phone" type="text" placeholder="Téléphone">
+    <div class="row">
+      <div class="col-md-12" style="text-align: right;">
+        <button type="submit" class="gp-button gp-button--gray">Envoyer</button>
+      </div>
+    </div>
+  </form>
+
+  <div id="sfws_success" class="row" style="display:none;">
+    <div class="col-md-12 success_message">
+      Votre message a été envoyé.
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <textarea id="sfws_message" placeholder="Votre message"></textarea>
+
+  <div id="sfws_loading" class="row" style="display:none;">
+    <div class="col-md-12 loading_message">
+      Envoi en cours...
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12" style="text-align: right;">
-      <button type="submit" class="gp-button gp-button--gray">Envoyer</button>
-    </div>
-  </div>
-</form>
+
+</div>

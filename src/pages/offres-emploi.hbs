@@ -32,6 +32,7 @@
       <div class="container wow fadeInUp">
           <div class="row">
             <div class="col-md-10 col-md-offset-1 text-center">
+              <a id="candidature" ></a>
               <h1>
                 Candidature spontanée
               </h1>
@@ -39,7 +40,8 @@
           </div>
           <div class="row">
             <div class="col-md-10 col-md-offset-1 text-center">
-              { {APPLICATION_FORM} }
+              <input id="sfws_type" type="hidden" value="Candidature">
+              {{> components/form}}
             </div>
           </div>
         </div>
