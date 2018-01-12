@@ -10,7 +10,7 @@ const subsidiaryLogos = {
   "Axel Duval": "axel_duval.jpg",
   "Axel Sud": "axel_sud.jpg",
   "Brein Transports": "brein_transports.jpg",
-  "Groupe Poisson": "groupe_poisson.jpg",
+  "Groupe Poisson": "entite_groupepoisson.png",
   "Marcel Equipment": "logo-marcel-equipment-limited.jpg",
   "Maintenance Service": "maintenance_service.jpg",
   "Morel": "morel.jpg",
