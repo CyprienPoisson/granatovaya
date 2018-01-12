@@ -7,11 +7,20 @@
       "**/node_modules/**"
     ],
     "rewrites": [
-      {"source": "/toutes-nos-actualites.html", "function": "content"},
-      {"source": "/actualites/**", "function": "content"}
+      {
+        "source": "/toutes-nos-actualites.html",
+        "function": "content"
+      },
+      {
+        "source": "/actualites/**",
+        "function": "content"
+      }
     ]
   },
   "database": {
     "rules": "database.bolt"
+  },
+  "functions": {
+    "predeploy": "npm --prefix functions run build"
   }
 }
