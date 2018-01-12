@@ -2,7 +2,11 @@
   &__title-section{
     padding-top: $spacing;
     background-color: white;
-    margin-bottom: $spacing;
+    margin-bottom: 0;
+  }
+  &__offres{
+    margin: 0;
+    padding: 0 !important;
   }
   &__form-section{
     padding-top: $spacing;
@@ -21,7 +25,7 @@
     align-items: center;
     border: 3px solid $gray;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: $spacing;
     padding-top: $smallSpacing;
     padding-bottom: $smallSpacing;
     @include mobile{
@@ -62,6 +66,10 @@
   &__label{
     font-size: 150%;
     font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: $spacing;
   }
   &__details{
     font-size: 100%;

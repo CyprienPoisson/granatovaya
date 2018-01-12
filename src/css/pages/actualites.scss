@@ -32,6 +32,10 @@
       }
       &__title{
         flex: 1 1 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: $spacing;
       }
       &__subsidiary{
         flex: 0 0 auto;
