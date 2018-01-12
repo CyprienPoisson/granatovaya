@@ -2,6 +2,13 @@
   &__title-section{
     background-color: $green;
     color: $white;
+    @include mobile{
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+      div{
+        margin: 0 !important;
+      }
+    }
   }
 
   &__articles-list{
@@ -14,16 +21,27 @@
         margin-top: 30px;
         padding-bottom: 20px;
         border-bottom: 1px solid $gray2;
+        overflow: hidden;
+        @include mobile{
+          display: block;
+        }
       }
       &__image{
         flex: 0 0 auto;
         width: 120px;
         margin-right: 20px;
+        @include mobile{
+          display: none;
+        }
       }
       &__content{
         flex: 1 1 auto;
         display: flex;
         flex-direction: column;
+        @include mobile{
+          display: block;
+          width: 100%;
+        }
       }
       &__header{
         flex: 0 0 auto;
@@ -36,11 +54,18 @@
         overflow: hidden;
         text-overflow: ellipsis;
         padding-right: $spacing;
+        @include mobile{
+          font-size: 1.2rem !important;
+        }
       }
       &__subsidiary{
         flex: 0 0 auto;
         > img{
           height: 40px;
+
+          @include mobile{
+            height: 25px;
+          }
         }
       }
       &__excerpt{
@@ -67,6 +92,21 @@
         padding-top: 10px;
         text-align: right;
       }
+    }
+  }
+}
+
+.actualite{
+  &__title-section{
+    @include mobile{
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+    }
+  }
+  &__article{
+    @include mobile{
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
     }
   }
 }

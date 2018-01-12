@@ -13,6 +13,10 @@
     p{
       text-align: justify;
     }
+    @include mobile{
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+    }
   }
 
   &__historique{
@@ -26,6 +30,10 @@
     }
     p{
       text-align: justify;
+    }
+
+    @include mobile{
+      padding-bottom: 15px !important;
     }
   }
 
@@ -41,6 +49,11 @@
     p{
       text-align: justify;
     }
+
+    @include mobile{
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
   }
 
   &__implantations{
@@ -55,12 +68,34 @@
     p{
       text-align: justify;
     }
+
+    @include mobile{
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
   }
 
   &__contact{
     background: $white !important;
     h1, h5, p{
       color: $fontPrimaryColor !important;
+    }
+
+    &-address{
+      &--left{
+        text-align: left !important;
+      }
+      &--right{
+        text-align: right !important;
+        @include mobile{
+          text-align: left !important;
+        }
+      }
+    }
+
+    @include mobile{
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
     }
   }
 
@@ -99,6 +134,11 @@
       right: 0;
       bottom: 0;
       text-align: center;
+    }
+
+    @include mobile{
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
     }
   }
 }

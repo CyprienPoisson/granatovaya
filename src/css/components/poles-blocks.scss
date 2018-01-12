@@ -1,4 +1,12 @@
 .pole-blocks{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  >a{
+    flex: 0 0 auto;
+    width: 25%;
+  }
   &__title-wrapper{
     position: absolute;
     top: 0;

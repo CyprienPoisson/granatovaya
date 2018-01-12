@@ -3,6 +3,13 @@
     padding-top: $spacing;
     background-color: white;
     margin-bottom: 0;
+
+  
+    @include mobile{
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+    }
+    
   }
   &__offres{
     margin: 0;

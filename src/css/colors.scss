@@ -92,6 +92,9 @@ $verySmallSpacing: $spacing/4;
   img{
     width: 100%;
   }
+  @include mobile{
+    margin: 0 !important;
+  }
 }
 
 .text-card{
@@ -131,4 +134,10 @@ section{
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
+  
+  @include mobile{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
 }

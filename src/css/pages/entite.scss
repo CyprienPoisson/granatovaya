@@ -12,5 +12,10 @@
       padding-top: $spacing !important;
       text-align: center;
     }
+    @include mobile{
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 15px !important;
+    }
   }
 }

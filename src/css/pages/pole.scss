@@ -9,6 +9,10 @@
       color: $fontPrimaryColor !important;
       text-align: justify !important;
     }
+    @include mobile{
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+    }
     &--travaux{
       background-color: #eeeeee !important;
       h1{
@@ -58,12 +62,21 @@
     background-color: $white !important;
     color: $fontPrimaryColor !important;
 
+    @include mobile{
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+    }
+
     img{
       display:block;
       width: auto;
       height: 3em;
       margin-left: auto;
       margin-right: auto;
+
+      @include mobile{
+        height: 4em;
+      }
     }
 
     p{
@@ -74,10 +87,22 @@
       box-sizing: content-box;
       overflow: hidden;
       color: $fontPrimaryColor !important;
+
+      @include mobile{
+        padding-bottom: 0 !important;
+      }
     }
 
     >div >div.row{
-      padding-bottom: 40px;
+      padding-bottom: 40px !important;
+      @include mobile{
+        padding-bottom: 0 !important;
+      }
+      >div{
+        @include mobile{
+          padding-bottom: 40px !important;
+        }
+      }
     }
   }
 }
