@@ -12,7 +12,7 @@
     @extend .text;
     @extend .is-size-2;
     margin-top: 0 !important;
-    text-align: justify !important;
+    text-align: justify;
     margin-bottom: $spacing !important;
     hyphens: auto;
   }
@@ -54,5 +54,13 @@
       padding-bottom: .5em;
       hyphens: auto;
     }
+  }
+}
+
+.content--sf-richtext{
+  @extend .content;
+
+  p{
+
   }
 }
