@@ -2,11 +2,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const functions = require("firebase-functions");
 const express = require("express");
+const admin_1 = require("./admin");
+const appAdmin = express();
+for (const k in admin_1.default) {
+    appAdmin.get(`/${k}`, admin_1.default[k]);
+}
+exports.admin = functions.https.onRequest(appAdmin);
+const update_web_content_1 = require("./update-web-content");
+exports.updateWebContent = functions.https.onRequest(update_web_content_1.default);
 const serve_content_1 = require("./serve-content");
-const app = express();
-app.get('/toutes-nos-actualites.html', serve_content_1.default.newsIndex);
-app.get('/actualites/:id/:slug', serve_content_1.default.newsPage);
-app.get('/offres-emploi.html', serve_content_1.default.jobsIndex);
-app.get('/offres-emploi/:id/:slug', serve_content_1.default.jobPage);
-exports.content = functions.https.onRequest(app);
+const appContent = express();
+appContent.get('/toutes-nos-actualites.html', serve_content_1.default.newsIndex);
+appContent.get('/actualites/:id/:slug', serve_content_1.default.newsPage);
+appContent.get('/offres-emploi.html', serve_content_1.default.jobsIndex);
+appContent.get('/offres-emploi/:id/:slug', serve_content_1.default.jobPage);
+exports.content = functions.https.onRequest(appContent);
 //# sourceMappingURL=index.js.map

@@ -297,10 +297,9 @@ const diacriticsReplacementList = [
 ];
 
 const diacriticsMap = {};
-for (var i = 0; i < diacriticsReplacementList.length; i++) {
-  var chars = diacriticsReplacementList[i].chars;
-  for (var j = 0; j < chars.length; j++) {
-    diacriticsMap[chars[j]] = diacriticsReplacementList[i].base;
+for( const row of diacriticsReplacementList){
+  for( const char of row.chars){
+    diacriticsMap[char] = row.base;
   }
 }
 
@@ -311,21 +310,23 @@ function removeDiacritics(str) {
   });
 }
 
-
-exports.toSlug = function(slug){
-  slug = removeDiacritics(slug);
-  slug = slug.toLowerCase();
-  slug = slug.replace( /[^0-9a-z]+/gi, '-');
-  slug = slug.replace( /^[^0-9a-z]+/gi, '');
-  slug = slug.replace( /[^0-9a-z]+$/gi, '');
-  return slug;
+function toSlug(slug){
+  return removeDiacritics(slug)
+    .toLowerCase()
+    .replace( /[^0-9a-z]+/gi, '-')
+    .replace( /^[^0-9a-z]+/gi, '')
+    .replace( /[^0-9a-z]+$/gi, '');
 };
 
-exports.toUnderscoredSlug = function(slug){
-  slug = removeDiacritics(slug);
-  slug = slug.toLowerCase();
-  slug = slug.replace( /[^0-9a-z]+/gi, '_');
-  slug = slug.replace( /^[^0-9a-z]+/gi, '');
-  slug = slug.replace( /[^0-9a-z]+$/gi, '');
-  return slug;
+function toUnderscoredSlug(slug){
+  return removeDiacritics(slug)
+    .toLowerCase()
+    .replace( /[^0-9a-z]+/gi, '_')
+    .replace( /^[^0-9a-z]+/gi, '')
+    .replace( /[^0-9a-z]+$/gi, '');
 };
+
+export default {
+  toSlug,
+  toUnderscoredSlug,
+}
