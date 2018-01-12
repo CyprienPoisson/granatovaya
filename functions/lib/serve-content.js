@@ -79,13 +79,66 @@ function newsPage(req, res) {
         });
         const templateFunction = handlebars_1.default.compile(templateString);
         const newsHTML = templateFunction({ news });
-        const result = rawPage.replace('NEWS_CONTENT', newsHTML);
+        const result = rawPage
+            .replace('NEWS_CONTENT', newsHTML)
+            .replace(/NEWS_TITLE/g, news.title);
         res.send(result);
-        res.send(req.params.id);
+    });
+}
+function jobsIndex(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const snapshot = yield db.ref(`content/jobOffers`).once('value');
+        let jobsList = snapshot.val();
+        jobsList = Object.keys(jobsList).map(k => jobsList[k])
+            .sort((a, b) => {
+            if (a.createdAt && b.createdAt) {
+                return a.createdAt - b.createdAt;
+            }
+            else if (a.createdAt && !b.createdAt) {
+                return 1;
+            }
+            else if (!a.createdAt && b.createdAt) {
+                return -1;
+            }
+            else if (!a.createdAt && !b.createdAt) {
+                return a.id - b.id;
+            }
+            return 0;
+        })
+            .reverse();
+        const rawPage = fs.readFileSync("./pages/offres-emploi.html").toString();
+        const templateString = fs.readFileSync("./templates/jobs-list.hbs").toString();
+        handlebars_1.default.registerHelper('subsidiaryLogo', function (subsidiary) {
+            return subsidiaryLogos[subsidiary];
+        });
+        const templateFunction = handlebars_1.default.compile(templateString);
+        const jobsListHTML = templateFunction({ jobsList });
+        const result = rawPage.replace('JOBS_LIST', jobsListHTML);
+        res.send(result);
+    });
+}
+function jobPage(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const jobId = req.params.id;
+        const snapshot = yield db.ref(`content/jobOffers/${jobId}`).once('value');
+        const job = snapshot.val();
+        const rawPage = fs.readFileSync("./pages/offre-emploi.html").toString();
+        const templateString = fs.readFileSync("./templates/job-page.hbs").toString();
+        handlebars_1.default.registerHelper('subsidiaryLogo', function (subsidiary) {
+            return subsidiaryLogos[subsidiary];
+        });
+        const templateFunction = handlebars_1.default.compile(templateString);
+        const jobHTML = templateFunction({ job });
+        const result = rawPage
+            .replace('JOB_CONTENT', jobHTML)
+            .replace(/JOB_TITLE/g, job.title);
+        res.send(result);
     });
 }
 exports.default = {
     newsIndex,
-    newsPage
+    newsPage,
+    jobsIndex,
+    jobPage,
 };
 //# sourceMappingURL=serve-content.js.map

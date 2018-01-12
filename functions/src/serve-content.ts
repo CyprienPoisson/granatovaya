@@ -86,13 +86,78 @@ async function newsPage(req, res){
   const templateFunction = Handlebars.compile(templateString);
 
   const newsHTML: string = templateFunction({news});
-  const result = rawPage.replace('NEWS_CONTENT', newsHTML);
+  const result = rawPage
+    .replace('NEWS_CONTENT', newsHTML)
+    .replace(/NEWS_TITLE/g, news.title);
   
   res.send(result);
-  res.send(req.params.id);
+}
+
+async function jobsIndex(req, res){
+  
+  const snapshot = await db.ref(`content/jobOffers`).once('value');
+
+  let jobsList = snapshot.val();
+  jobsList = Object.keys(jobsList).map(k=>jobsList[k])
+  .sort((a, b)=>{
+    if( a.createdAt && b.createdAt ){
+      return a.createdAt - b.createdAt;
+    }
+    else if( a.createdAt && !b.createdAt){
+      return 1;
+    }
+    else if( !a.createdAt && b.createdAt){
+      return -1;
+    }
+    else if( !a.createdAt && !b.createdAt){
+      return a.id - b.id;
+    }
+    return 0;
+  })
+  .reverse();
+  
+  const rawPage: string = fs.readFileSync("./pages/offres-emploi.html").toString();
+  const templateString: string = fs.readFileSync("./templates/jobs-list.hbs").toString();
+
+  Handlebars.registerHelper('subsidiaryLogo', function(subsidiary) {
+    return subsidiaryLogos[subsidiary];
+  });
+
+  const templateFunction = Handlebars.compile(templateString);
+
+  const jobsListHTML: string = templateFunction({jobsList});
+  const result = rawPage.replace('JOBS_LIST', jobsListHTML);
+  
+  res.send(result);
+}
+
+
+
+async function jobPage(req, res){
+  const jobId = req.params.id;
+  const snapshot = await db.ref(`content/jobOffers/${jobId}`).once('value');
+  const job = snapshot.val();
+
+  const rawPage: string = fs.readFileSync("./pages/offre-emploi.html").toString();
+  const templateString: string = fs.readFileSync("./templates/job-page.hbs").toString();
+
+  Handlebars.registerHelper('subsidiaryLogo', function(subsidiary) {
+    return subsidiaryLogos[subsidiary];
+  });
+
+  const templateFunction = Handlebars.compile(templateString);
+
+  const jobHTML: string = templateFunction({job});
+  const result = rawPage
+    .replace('JOB_CONTENT', jobHTML)
+    .replace(/JOB_TITLE/g, job.title);
+  
+  res.send(result);
 }
 
 export default {
   newsIndex,
-  newsPage
+  newsPage,
+  jobsIndex,
+  jobPage,
 }
