@@ -1,0 +1,29 @@
+.form{
+  input{
+    width: 100%;
+    color: black;
+    font-size: 1rem !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-weight: normal !important;
+    padding: .3rem .2rem .3rem .4rem;
+  }
+
+  textarea{
+    width: 100%;
+    height: 150px;
+    color: black;
+    font-size: 1rem !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-weight: normal !important;
+    padding: .3rem .2rem .3rem .4rem;
+  }
+
+  button{
+    padding: .5rem;
+    color: $blue1;
+    font-size: 1.2rem !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-weight: normal !important;
+    padding: .5rem 1rem .5rem 1rem;
+  }
+}

@@ -173,7 +173,7 @@ body.groupepoisson{
             display: inline-block !important;
             padding: 5px 10px 5px 10px !important;
             text-transform: none;
-            font-size: 8px;
+            font-size: .7rem;
             &, &:visited{
               color: white !important;
             }
@@ -225,6 +225,7 @@ body.groupepoisson{
 @import "components/button";
 @import "components/cards";
 @import "components/content";
+@import "components/form";
 @import "components/google-map";
 @import "components/poles-blocks";
 @import "components/title-section";

@@ -204,15 +204,102 @@
           </div>
           <div class="row">
             <div class="col-md-10 col-md-offset-1 text-center">
-              Cupidatat reprehenderit aute duis aliqua amet cupidatat laboris ea dolore labore ad.
-              Ut id nulla amet proident eu fugiat consectetur. Irure consequat pariatur est commodo
-              officia ullamco voluptate cupidatat. Sit sit nulla incididunt eiusmod in irure eiusmod aute.
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1 text-center">
-              { {APPLICATION_FORM} }
-            </div>
+              <script type="text/javascript">
+                function submitFormToSF(){
+                  var firstname = document.querySelector('#sfws_firstname');
+                  try{
+                    firstname = firstname.value;
+                  }
+                  catch(e){
+                    firstname = '';
+                  }
+                  var lastname = document.querySelector('#sfws_lastname');
+                  try{
+                    lastname = lastname.value;
+                  }
+                  catch(e){
+                    lastname = '';
+                  }
+                  var email = document.querySelector('#sfws_email');
+                  try{
+                    email = email.value;
+                  }
+                  catch(e){
+                    email = '';
+                  }
+                  var phone = document.querySelector('#sfws_phone');
+                  try{
+                    phone = phone.value;
+                  }
+                  catch(e){
+                    phone = '';
+                  }
+                  var message = document.querySelector('#sfws_message');
+                  try{
+                    message = message.value;
+                  }
+                  catch(e){
+                    message = '';
+                  }
+                  var type = document.querySelector('#sfws_type');
+                  try{
+                    type = type.value;
+                  }
+                  catch(e){
+                    type = '';
+                  }
+                  var source = document.querySelector('#sfws_source');
+                  try{
+                    source = source.value;
+                  }
+                  catch(e){
+                    source = '';
+                  }
+              
+                  var body = JSON.stringify({
+                    firstname: firstname,
+                    lastname: lastname,
+                    email: email,
+                    phone: phone,
+                    message: message,
+                    type: type,
+                    source: source
+                  });
+              
+                  var xhttp = new XMLHttpRequest();
+                  xhttp.open("POST", "https://groupepoisson.secure.force.com/website/services/apexrest/WebSubmission/", true);
+                  xhttp.setRequestHeader("Content-type", "application/json");
+                  xhttp.send(body);
+                  
+                  return false;
+                }
+              </script>
+              <form onsubmit="return submitFormToSF();" class="form">
+                <div class="row">
+                  <div class="col-md-2">
+                    <input id="sfws_firstname" type="text" placeholder="Prénom">
+                  </div>
+                  <div class="col-md-3">
+                    <input id="sfws_lastname" type="text" placeholder="Nom">
+                  </div>
+                  <div class="col-md-4">
+                    <input id="sfws_email" type="text" placeholder="Email">
+                  </div>
+                  <div class="col-md-3">
+                    <input id="sfws_phone" type="text" placeholder="Téléphone">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <textarea id="sfws_message" placeholder="Votre message"></textarea>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12" style="text-align: right;">
+                    <button type="submit">Envoyer</button>
+                  </div>
+                </div>
+              </form>            </div>
           </div>
         </div>
     </section>
