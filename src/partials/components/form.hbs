@@ -29,55 +29,60 @@
       document.querySelector('#sfws_loading').style.display = 'block';
       document.querySelector('#sfws_form').style.display = "none";
 
-      var firstname = document.querySelector('#sfws_firstname');
       try{
+        var firstname = document.querySelector('#sfws_firstname');
         firstname = firstname.value;
       }
       catch(e){
         firstname = '';
       }
-      var lastname = document.querySelector('#sfws_lastname');
       try{
+        var lastname = document.querySelector('#sfws_lastname');
         lastname = lastname.value;
       }
       catch(e){
         lastname = '';
       }
-      var email = document.querySelector('#sfws_email');
       try{
+        var email = document.querySelector('#sfws_email');
         email = email.value;
       }
       catch(e){
         email = '';
       }
-      var phone = document.querySelector('#sfws_phone');
       try{
+        var phone = document.querySelector('#sfws_phone');
         phone = phone.value;
       }
       catch(e){
         phone = '';
       }
-      var message = document.querySelector('#sfws_message');
       try{
+        var message = document.querySelector('#sfws_message');
         message = message.value;
       }
       catch(e){
         message = '';
       }
-      var type = document.querySelector('#sfws_type');
       try{
+        var type = document.querySelector('#sfws_type');
         type = type.value;
       }
       catch(e){
         type = '';
       }
-      var source = document.querySelector('#sfws_source');
       try{
+        var source = document.querySelector('#sfws_source');
         source = source.value;
       }
       catch(e){
         source = '';
       }
+      try{
+        var selectSource = document.querySelector('#sfws_selectSource');
+        source = source.value;
+      }
+      catch(e){ }
 
       var body = JSON.stringify({
         firstname: firstname,
