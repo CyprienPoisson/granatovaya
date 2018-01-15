@@ -1,5 +1,30 @@
 <div class="form">
   <script type="text/javascript">
+  
+    document.addEventListener('DOMContentLoaded', function(){
+    try{
+      // Get query string and remove first '?'
+      var queryString = window.location.search.substring(1);
+      var parts = queryString.split('&');
+      var params = {};
+      for( var i = 0; i < parts.length; i++ ){
+        var part = parts[i];
+        var subparts = part.split('=', 2);
+        var k = subparts[0];
+        var v = subparts[1];
+        params[k.toLowerCase()] = v;
+      }
+      var source = params['contact'];
+      source = decodeURIComponent(source);
+      console.log(source);
+      document.querySelector('#sfws_selectSource').value = source;
+    }
+    catch(e){
+      console.error('Couldn\'t extract source from URL');
+    }
+
+    }, false);
+
     function submitFormToSF(){
       document.querySelector('#sfws_loading').style.display = 'block';
       document.querySelector('#sfws_form').style.display = "none";
@@ -92,6 +117,48 @@
         Une erreur s'est produite, veuillez vérifier vos informations, en particulier votre email.
       </div>
     </div>
+    {{#if showSubsidiarySelector}}
+      <div class="row">
+        <div class="col-md-12">
+          <select id="sfws_selectSource">
+            <option checked=>Choisissez un destinataire</option>
+            <option value="Akela Interim">
+              Akela Interim — Recrutement en intérim et CDI
+            </option>
+            <option value="Axel Duval">
+              Axel Duval — Travaux de Génie Civil, Fondations et Géothermie
+            </option>
+            <option value="Axel Sud">
+              Axel Sud — Terrassement, Réseaux humides, Réseaux secs, Génie Civil
+            </option>
+            <option value="Brein Transports">
+              Brein Transports — Transports exceptionnels et camions bennes
+            </option>
+            <option value="Maintenance Service">
+              Maintenance Service — Vente, montage et entretien de bâtiments modulaires
+            </option>
+            <option value="Morel">
+              Morel — Location d'engins de travaux publics avec chauffeur
+            </option>
+            <option value="Poisson Formation">
+              Poisson Formation — Organisme de formation, sécurité au travail
+            </option>
+            <option value="SNDM">
+              SNDM — Vente et aménagement de containers maritimes et de stockage
+            </option>
+            <option value="Terre-durable">
+              Terre-durable — Recyclage de matériaux inertes, vente de matériaux en vrac et location de bennes
+            </option>
+            <option value="Terre-net">
+              Terre-net — Location Full Service de matériels de TP et de manutention de produits vrac
+            </option>
+            <option value="">
+              Autre — Général
+            </option>
+          </select>
+        </div>
+      </div>
+    {{/if}}
     <div class="row">
       <div class="col-md-2">
         <input id="sfws_firstname" type="text" placeholder="Prénom">

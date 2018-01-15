@@ -1,4 +1,35 @@
 .form{
+  select{
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    color: black;
+    font-size: 1rem !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-weight: normal !important;
+    padding: .3rem .2rem .3rem .4rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    height: auto;
+    outline: none;
+    border-radius: 0;
+    cursor: pointer;
+
+    // Arrow on the right:
+    background-image:
+      linear-gradient(45deg, transparent 50%, black 50%),
+      linear-gradient(135deg, black 50%, transparent 50%);
+    background-position:
+      calc(100% - 20px) calc(.9em),
+      calc(100% - 15px) calc(.9em);
+    background-size:
+      5px 5px,
+      5px 5px;
+    background-repeat: no-repeat;
+  }
+
   input{
     width: 100%;
     color: black;
@@ -6,6 +37,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif !important;
     font-weight: normal !important;
     padding: .3rem .2rem .3rem .4rem;
+    outline: none;
   }
 
   textarea{
@@ -16,6 +48,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif !important;
     font-weight: normal !important;
     padding: .3rem .2rem .3rem .4rem;
+    outline: none;
   }
 
   button{
