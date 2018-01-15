@@ -39,19 +39,12 @@ async function newsIndex(req, res){
   let newsList = snapshot.val();
   newsList = Object.keys(newsList).map(k=>newsList[k])
   .sort((a, b)=>{
-    if( a.createdAt && b.createdAt ){
-      return a.createdAt - b.createdAt;
+    try{
+      return a.createdAt.localeCompare(b.createdAt);
     }
-    else if( a.createdAt && !b.createdAt){
-      return 1;
+    catch(e){
+      return 0;
     }
-    else if( !a.createdAt && b.createdAt){
-      return -1;
-    }
-    else if( !a.createdAt && !b.createdAt){
-      return a.id - b.id;
-    }
-    return 0;
   })
   .reverse();
   
@@ -100,19 +93,12 @@ async function jobsIndex(req, res){
   let jobsList = snapshot.val();
   jobsList = Object.keys(jobsList).map(k=>jobsList[k])
   .sort((a, b)=>{
-    if( a.createdAt && b.createdAt ){
-      return a.createdAt - b.createdAt;
+    try{
+      return a.createdAt.localeCompare(b.createdAt);
     }
-    else if( a.createdAt && !b.createdAt){
-      return 1;
+    catch(e){
+      return 0;
     }
-    else if( !a.createdAt && b.createdAt){
-      return -1;
-    }
-    else if( !a.createdAt && !b.createdAt){
-      return a.id - b.id;
-    }
-    return 0;
   })
   .reverse();
   
