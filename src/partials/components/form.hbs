@@ -15,9 +15,10 @@
         params[k.toLowerCase()] = v;
       }
       var source = params['contact'];
-      source = decodeURIComponent(source);
-      console.log(source);
-      document.querySelector('#sfws_selectSource').value = source;
+      if(source){
+        source = decodeURIComponent(source);
+        document.querySelector('#sfws_selectSource').value = source;
+      }
     }
     catch(e){
       console.error('Couldn\'t extract source from URL');
@@ -80,10 +81,10 @@
       }
       try{
         var selectSource = document.querySelector('#sfws_selectSource');
-        source = source.value;
+        source = selectSource.value;
       }
       catch(e){ }
-
+      
       var body = JSON.stringify({
         firstname: firstname,
         lastname: lastname,
@@ -126,7 +127,7 @@
       <div class="row">
         <div class="col-md-12">
           <select id="sfws_selectSource">
-            <option checked=>Choisissez un destinataire</option>
+            <option checked=true>Choisissez un destinataire</option>
             <option value="Akela Interim">
               Akela Interim — Recrutement en intérim et CDI
             </option>
@@ -166,16 +167,16 @@
     {{/if}}
     <div class="row">
       <div class="col-md-2">
-        <input id="sfws_firstname" type="text" placeholder="Prénom">
+        <input id="sfws_firstname" type="text" placeholder="Prénom" autocomplete='given-name'>
       </div>
       <div class="col-md-3">
-        <input id="sfws_lastname" type="text" placeholder="Nom">
+        <input id="sfws_lastname" type="text" placeholder="Nom" autocomplete='family-name'>
       </div>
       <div class="col-md-4">
-        <input id="sfws_email" type="text" placeholder="Email">
+        <input id="sfws_email" type="text" placeholder="Email" autocomplete='email'>
       </div>
       <div class="col-md-3">
-        <input id="sfws_phone" type="text" placeholder="Téléphone">
+        <input id="sfws_phone" type="text" placeholder="Téléphone"autocomplete='tel'>
       </div>
     </div>
     <div class="row">
