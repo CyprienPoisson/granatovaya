@@ -1,0 +1,11 @@
+
+
+.text-box{
+  p{
+    text-align: justify;
+  }
+  &__buttons{
+    text-align: right;
+    padding-top: $spacing;
+  }
+}

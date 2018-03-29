@@ -1,0 +1,17 @@
+.index__half-block-left{
+  @include desktop{
+    margin-right: 35px;
+    text-align: justify;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+
+.index__half-block-right{
+  @include desktop{
+    margin-left: 35px;
+    text-align: justify;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}

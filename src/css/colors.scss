@@ -76,6 +76,8 @@ $spacing: 30px;
 $smallSpacing: $spacing/2;
 $verySmallSpacing: $spacing/4;
 
+$mobileSpacing: 20px;
+
 @each $colorName, $color in $colors{
   .#{$colorName}-box{
     background-color: $color !important;
@@ -97,18 +99,6 @@ $verySmallSpacing: $spacing/4;
   }
 }
 
-.text-card{
-  padding-top: $smallSpacing;
-  padding-bottom: $smallSpacing;
-  h5{
-    padding-top: .8em;
-    padding-bottom: .3em;
-  }
-  p{
-    text-align: justify;
-  }
-}
-
 .download-box{
   position: relative;
   padding: 0;
@@ -125,19 +115,4 @@ $verySmallSpacing: $spacing/4;
     bottom: 20px;
     text-align: center;
   }
-}
-
-section{
-  padding-top: $spacing !important;
-  padding-bottom: $spacing !important;
-  &.no-spacing{
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-  
-  @include mobile{
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
 }

@@ -50,3 +50,31 @@ strong{
 em{
   font-style: italic !important;
 }
+
+.text-left{
+  text-align: left !important;
+  &--desktop{
+    @include desktop {
+      text-align: left !important;
+    }
+  }
+  &--mobile{
+    @include mobile {
+      text-align: left !important;
+    }
+  }
+}
+
+.text-right{
+  text-align: right !important;
+  &--desktop{
+    @include desktop {
+      text-align: right !important;
+    }
+  }
+  &--mobile{
+    @include mobile {
+      text-align: right !important;
+    }
+  }
+}

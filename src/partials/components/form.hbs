@@ -118,14 +118,14 @@
     }
   </script>
   <form id="sfws_form" onsubmit="return submitFormToSF();">
-    <div id="sfws_error" class="row" style="display:none;">
-      <div class="col-md-12">
+    <div id="sfws_error" class="flex-row" style="display:none;">
+      <div class="item-12">
         Une erreur s'est produite, veuillez vérifier vos informations, en particulier votre email.
       </div>
     </div>
     {{#if showSubsidiarySelector}}
-      <div class="row">
-        <div class="col-md-12">
+      <div class="flex-row">
+        <div class="item-12">
           <select id="sfws_selectSource">
             <option checked=true>Choisissez un destinataire</option>
             <option value="Akela Interim">
@@ -165,40 +165,40 @@
         </div>
       </div>
     {{/if}}
-    <div class="row">
-      <div class="col-md-2">
+    <div class="flex-row">
+      <div class="item-2">
         <input id="sfws_firstname" type="text" placeholder="Prénom" autocomplete='given-name'>
       </div>
-      <div class="col-md-3">
+      <div class="item-3">
         <input id="sfws_lastname" type="text" placeholder="Nom" autocomplete='family-name'>
       </div>
-      <div class="col-md-4">
+      <div class="item-4">
         <input id="sfws_email" type="text" placeholder="Email" autocomplete='email'>
       </div>
-      <div class="col-md-3">
+      <div class="item-3">
         <input id="sfws_phone" type="text" placeholder="Téléphone"autocomplete='tel'>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
+    <div class="flex-row">
+      <div class="item-12">
         <textarea id="sfws_message" placeholder="Votre message"></textarea>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12" style="text-align: right;">
+    <div class="flex-row">
+      <div class="item-12" style="text-align: right;">
         <button type="submit" class="gp-button gp-button--gray">Envoyer</button>
       </div>
     </div>
   </form>
 
-  <div id="sfws_success" class="row" style="display:none;">
-    <div class="col-md-12 success_message">
+  <div id="sfws_success" class="flex-row" style="display:none;">
+    <div class="item-12 success_message">
       Votre message a été envoyé.
     </div>
   </div>
 
-  <div id="sfws_loading" class="row" style="display:none;">
-    <div class="col-md-12 loading_message">
+  <div id="sfws_loading" class="flex-row" style="display:none;">
+    <div class="item-12 loading_message">
       Envoi en cours...
     </div>
   </div>

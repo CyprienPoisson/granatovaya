@@ -1,5 +1,7 @@
 .has-content{
-  padding-top: $spacing;
+  @include desktop{
+    padding-top: $spacing;
+  }
 }
 .content{
 
@@ -21,24 +23,38 @@
     margin-bottom: $spacing !important;
     max-width: 100%;
     &.left{
-      float: left !important;
-      margin-right: $spacing;
+      @include desktop{
+        float: left !important;
+        margin-right: $spacing;
+      }
     }
     &.right{
-      float: right !important;
-      margin-left: $spacing;
+      @include desktop{
+        float: right !important;
+        margin-left: $spacing;
+      }
     }
   
     &.is-one-quarter{
-      width: 25%;
+      @include desktop{
+        width: 25%;
+      }
     }
   
     &.is-one-third{
-      width: 33%;
+      @include desktop{
+        width: 33%;
+      }
     }
     
     &.is-half{
-      width: 50%;
+      @include desktop{
+        width: 50%;
+      }
+    }
+
+    @include mobile{
+      width: 100%;
     }
   }
 

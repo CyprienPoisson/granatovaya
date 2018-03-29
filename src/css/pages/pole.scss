@@ -1,5 +1,11 @@
 .pole{
 
+  &__picto-pole{
+    @include mobile{
+      max-width: 60px !important;
+    }
+  }
+
 
   &__title-section{
     h1{

@@ -255,15 +255,18 @@ body.groupepoisson{
 @import "components/address";
 @import "components/breadcrumb";
 @import "components/button";
-@import "components/cards";
 @import "components/content";
+@import "components/flex-row";
 @import "components/form";
 @import "components/google-map";
 @import "components/poles-blocks";
+@import "components/section";
+@import "components/text-box";
 @import "components/title-section";
 
 @import "pages/actualites";
 @import "pages/entite";
+@import "pages/index";
 @import "pages/le-groupe";
 @import "pages/nous-contacter.scss";
 @import "pages/offre-emploi";
@@ -274,21 +277,6 @@ body.groupepoisson{
 
 *{
   font-family: 'Roboto', sans-serif !important;
-}
-
-.row.flex{
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: stretch;
-  @for $i from 1 through 12 {
-    .col-md-#{$i}{
-      flex: 0 0 auto;
-      width: 100%;
-      @include desktop{
-        width: (100%/12)*$i;
-      }
-    }
-  }
 }
 
 .clearfix{

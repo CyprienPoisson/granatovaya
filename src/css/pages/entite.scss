@@ -4,6 +4,10 @@
     img{
       width: 100%;
     }
+
+    @include mobile{
+      display: none !important;
+    }
   }
 
   &__address{
@@ -16,6 +20,12 @@
       margin-top: 0 !important;
       padding-top: 0 !important;
       padding-bottom: 15px !important;
+    }
+  }
+
+  &__picto-pole{
+    @include mobile{
+      max-width: 60px !important;
     }
   }
 }

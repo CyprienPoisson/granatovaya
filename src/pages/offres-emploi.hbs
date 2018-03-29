@@ -8,8 +8,8 @@
   {{#*inline "main-block"}}
     <section class="offres-emploi__title-section">
       <div class="container wow fadeInUp">
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1 text-center">
+          <div class="flex-row flex-row--centered">
+            <div class="item-10 text-center">
               <h1 class="title is-size-2">
                 Nos offres d'emploi
               </h1>
@@ -20,8 +20,8 @@
 
     <section class="offres-emploi__offres">
       <div class="container wow fadeInUp">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1 offers-list">
+        <div class="flex-row flex-row--centered">
+          <div class="item-10 offers-list">
             JOBS_LIST
           </div>
         </div>
@@ -30,16 +30,16 @@
 
     <section class="offres-emploi__form-section">
       <div class="container wow fadeInUp">
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1 text-center">
+          <div class="flex-row flex-row--centered">
+            <div class="item-10 text-center">
               <a id="candidature" ></a>
               <h1>
                 Candidature spontanée
               </h1>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1 text-center">
+          <div class="flex-row flex-row--centered">
+            <div class="item-10 text-center">
               <input id="sfws_type" type="hidden" value="Candidature">
               {{> components/form}}
             </div>

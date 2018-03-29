@@ -1,0 +1,64 @@
+section{
+  position: relative;
+
+  padding-top: $spacing !important;
+  padding-bottom: $spacing !important;
+  &.no-spacing{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  @include mobile{
+    margin: 0 !important;
+    padding: $mobileSpacing $mobileSpacing/4 $mobileSpacing $mobileSpacing/4 !important;
+  }
+
+  > * {
+    // Avoid non positioned elements that would be rendered under absolute ones.
+    position: relative;
+  }
+
+  .section{
+    &__half-background{
+      @each $colorName, $color in $colors{
+        &--#{$colorName}{
+          background-color: $color !important;
+          width: 50%;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          &:nth-child(1){
+            left: 0;
+          }
+          &:nth-child(2){
+            right: 0;
+          }
+
+          @include mobile{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+
+
+  &.use-items-as-sections-on-mobile{
+    @include mobile{
+      padding: 0 !important;
+      margin: 0 !important;
+      >.container{
+        padding: 0 !important;
+        margin: 0 !important;
+        >.flex-row{
+          >div{
+            margin: 0 !important;
+            padding: $mobileSpacing 15px+$mobileSpacing/4 $mobileSpacing 15px+$mobileSpacing/4 !important;
+          }
+        }
+      }
+    }
+  }
+}
+
