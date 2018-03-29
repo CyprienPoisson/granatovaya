@@ -1,8 +1,9 @@
 .nous-contacter{
   &__addresses{
-    padding: $spacing !important;
+    padding: $spacing/2 !important;
     *{
       color: $fontPrimaryColor;
+      letter-spacing: normal !important;
     }
   }
 

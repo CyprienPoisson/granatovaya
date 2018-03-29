@@ -8,28 +8,38 @@
 
   {{#*inline "main-block"}}
 
-    {{> components/map}}
-
-
-<section class="bg-secondary-right-variant-2">
+<section class="gray1-box">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 nous-contacter__addresses">
-        {{>components/address site="gretz"}}
-        {{>components/address site="brillon"}}
-        {{>components/address site="roquemaure"}}
-        {{>components/address site="grand-fougeray"}}
-      </div>
-      <div class="col-md-8 nous-contacter__form offset-none bg-sm-full-width bg-secondary">
-          <h2>Contact</h2>
-          <a id="contact"></a>
-          <input id="sfws_type" type="hidden" value="Contact">
-          {{> components/form showSubsidiarySelector=true}}
-        </div>
-
+      <div class="col-md-12 nous-contacter__form">
+        <h2>Contact</h2>
+        <a id="contact"></a>
+        <input id="sfws_type" type="hidden" value="Contact">
+        {{> components/form showSubsidiarySelector=true}}
       </div>
     </div>
+  </div>
+</section>
 
+{{> components/map}}
+
+<section class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 nous-contacter__addresses">
+        {{>components/address site="gretz"}}
+      </div>
+      <div class="col-md-3 nous-contacter__addresses">
+        {{>components/address site="brillon"}}
+      </div>
+      <div class="col-md-3 nous-contacter__addresses">
+        {{>components/address site="roquemaure"}}
+      </div>
+      <div class="col-md-3 nous-contacter__addresses">
+        {{>components/address site="grand-fougeray"}}
+      </div>
+      </div>
+    </div>
   </div>
 </section>
 
