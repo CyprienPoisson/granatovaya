@@ -65,9 +65,28 @@ async function newsIndex(req, res){
 
 async function newsPage(req, res){
   const newsId = req.params.id;
-  const newsRef = db.ref(`content/news/${newsId}`);
+  const newsRef = db.ref(`content/news`);
   const snapshot = await newsRef.once('value');
-  const news = snapshot.val();
+  const allNews = snapshot.val();
+
+  const news = allNews[newsId];
+
+  const newsList = Object.keys(allNews).map(k=>allNews[k])
+  .sort((a, b)=>{
+    try{
+      return a.createdAt.localeCompare(b.createdAt);
+    }
+    catch(e){
+      return 0;
+    }
+  })
+  .reverse();
+
+  const newsPosition = newsList.indexOf(news);
+  console.log('OKOKOKOKO');
+  console.log(newsPosition);
+  const previousNews = newsList[newsPosition - 1];
+  const nextNews = newsList[newsPosition + 1];
 
   const rawPage: string = fs.readFileSync("./pages/actualite.html").toString();
   const templateString: string = fs.readFileSync("./templates/news-page.hbs").toString();
@@ -78,7 +97,7 @@ async function newsPage(req, res){
 
   const templateFunction = Handlebars.compile(templateString);
 
-  const newsHTML: string = templateFunction({news});
+  const newsHTML: string = templateFunction({news, previousNews, nextNews});
   const result = rawPage
     .replace('NEWS_CONTENT', newsHTML)
     .replace(/NEWS_TITLE/g, news.title);

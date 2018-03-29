@@ -1,3 +1,31 @@
-<div class="actualites__article content--sf-richtext">
-  {{{news.content}}}
-</div>
+<section class="actualite__article">
+  <div class="container wow fadeInUp">
+    <div class="flex-row flex-row--centered">
+      <div class="item-10">
+        
+        <div class="actualites__article content--sf-richtext">
+          {{{news.content}}}
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-row flex-row--centered">
+      <div class="item-10">
+        <div style="display:flex;flex-direction:row;">
+          <div class="flex: 0 0 auto;">
+            {{#if previousNews}}
+              <a href="/actualites/{{previousNews.id}}/{{previousNews.slug}}.html" class="gp-button gp-button--gray">Actualité précédente</a>
+            {{/if}}
+          </div>
+          <div style="flex: 1 1 auto;"></div>
+          <div class="flex: 0 0 auto;">
+            {{#if nextNews}}
+              <a href="/actualites/{{nextNews.id}}/{{nextNews.slug}}.html" class="gp-button gp-button--gray">Actualité suivante</a>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
