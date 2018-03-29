@@ -221,10 +221,9 @@
                       params[k.toLowerCase()] = v;
                     }
                     var source = params['contact'];
-                    if(source){
-                      source = decodeURIComponent(source);
-                      document.querySelector('#sfws_selectSource').value = source;
-                    }
+                    source = decodeURIComponent(source);
+                    console.log(source);
+                    document.querySelector('#sfws_selectSource').value = source;
                   }
                   catch(e){
                     console.error('Couldn\'t extract source from URL');
@@ -287,10 +286,10 @@
                     }
                     try{
                       var selectSource = document.querySelector('#sfws_selectSource');
-                      source = selectSource.value;
+                      source = source.value;
                     }
                     catch(e){ }
-                    
+              
                     var body = JSON.stringify({
                       firstname: firstname,
                       lastname: lastname,
@@ -331,16 +330,16 @@
                   </div>
                   <div class="row">
                     <div class="col-md-2">
-                      <input id="sfws_firstname" type="text" placeholder="Prénom" autocomplete='given-name'>
+                      <input id="sfws_firstname" type="text" placeholder="Prénom">
                     </div>
                     <div class="col-md-3">
-                      <input id="sfws_lastname" type="text" placeholder="Nom" autocomplete='family-name'>
+                      <input id="sfws_lastname" type="text" placeholder="Nom">
                     </div>
                     <div class="col-md-4">
-                      <input id="sfws_email" type="text" placeholder="Email" autocomplete='email'>
+                      <input id="sfws_email" type="text" placeholder="Email">
                     </div>
                     <div class="col-md-3">
-                      <input id="sfws_phone" type="text" placeholder="Téléphone"autocomplete='tel'>
+                      <input id="sfws_phone" type="text" placeholder="Téléphone">
                     </div>
                   </div>
                   <div class="row">
