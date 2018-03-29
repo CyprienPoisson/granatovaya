@@ -8,6 +8,8 @@ html{
   
     @include mobile{
       font-size: 15px !important;
+      width: 100vw !important;
+      overflow-x: hidden;
     }
 }
 
@@ -48,6 +50,14 @@ body.groupepoisson{
       border-color: $green !important;
     }
   }
+
+  .rd-mobilemenu_ul li.active > a {
+    background: $green;
+  }
+  .rd-mobilemenu_ul a:hover {
+    background: $green;
+  }
+
 
   header{
     border-bottom: 2px solid $blue !important;
