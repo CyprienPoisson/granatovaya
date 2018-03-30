@@ -292,3 +292,25 @@ body.groupepoisson{
     text-overflow: ellipsis;
   }
 }
+
+.rd-mobilemenu_ul a .rd-submenu-toggle {
+  position: absolute !important;
+  top: 50% !important;
+  right: 11px !important;
+  margin-top: -17.5px !important;
+  width: 32px !important;
+  height: 32px !important;
+  font: 400 10px 'FontAwesome' !important;
+  line-height: 32px !important;
+  text-align: center !important;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  border: 1px solid #000000 !important;
+  -moz-transition: 0.5s all ease !important;
+  -webkit-transition: 0.5s all ease !important;
+  -o-transition: 0.5s all ease !important;
+  transition: 0.5s all ease !important;
+  z-index: 1 !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+}
