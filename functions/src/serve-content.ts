@@ -83,8 +83,6 @@ async function newsPage(req, res){
   .reverse();
 
   const newsPosition = newsList.indexOf(news);
-  console.log('OKOKOKOKO');
-  console.log(newsPosition);
   const previousNews = newsList[newsPosition - 1];
   const nextNews = newsList[newsPosition + 1];
 
