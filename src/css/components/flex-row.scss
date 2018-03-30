@@ -25,6 +25,10 @@
     justify-content: center;
   }
 
+  &--v-centered{
+    align-items: center;
+  }
+
 
   &--no-mobile{
     @include mobile{
