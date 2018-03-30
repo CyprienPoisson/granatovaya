@@ -60,6 +60,7 @@ async function newsIndex(req, res){
   const newsListHTML: string = templateFunction({newsList});
   const result = rawPage.replace('NEWS_LIST', newsListHTML);
   
+  res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
   res.send(result);
 }
 
@@ -99,7 +100,8 @@ async function newsPage(req, res){
   const result = rawPage
     .replace('NEWS_CONTENT', newsHTML)
     .replace(/NEWS_TITLE/g, news.title);
-  
+
+  res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
   res.send(result);
 }
 
@@ -131,6 +133,7 @@ async function jobsIndex(req, res){
   const jobsListHTML: string = templateFunction({jobsList});
   const result = rawPage.replace('JOBS_LIST', jobsListHTML);
   
+  res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
   res.send(result);
 }
 
@@ -155,6 +158,7 @@ async function jobPage(req, res){
     .replace('JOB_CONTENT', jobHTML)
     .replace(/JOB_TITLE/g, job.title);
   
+  res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
   res.send(result);
 }
 

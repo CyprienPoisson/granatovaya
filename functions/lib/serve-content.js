@@ -56,6 +56,7 @@ function newsIndex(req, res) {
         const templateFunction = handlebars_1.default.compile(templateString);
         const newsListHTML = templateFunction({ newsList });
         const result = rawPage.replace('NEWS_LIST', newsListHTML);
+        res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
         res.send(result);
     });
 }
@@ -89,6 +90,7 @@ function newsPage(req, res) {
         const result = rawPage
             .replace('NEWS_CONTENT', newsHTML)
             .replace(/NEWS_TITLE/g, news.title);
+        res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
         res.send(result);
     });
 }
@@ -114,6 +116,7 @@ function jobsIndex(req, res) {
         const templateFunction = handlebars_1.default.compile(templateString);
         const jobsListHTML = templateFunction({ jobsList });
         const result = rawPage.replace('JOBS_LIST', jobsListHTML);
+        res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
         res.send(result);
     });
 }
@@ -132,6 +135,7 @@ function jobPage(req, res) {
         const result = rawPage
             .replace('JOB_CONTENT', jobHTML)
             .replace(/JOB_TITLE/g, job.title);
+        res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
         res.send(result);
     });
 }
