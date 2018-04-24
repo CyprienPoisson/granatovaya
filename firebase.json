@@ -29,6 +29,10 @@
     "rules": "database.bolt"
   },
   "functions": {
-    "predeploy": "npm --prefix functions run build"
+    "predeploy": "npm --prefix functions run build",
+    "source": "functions"
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }
