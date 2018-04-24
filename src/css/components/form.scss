@@ -61,6 +61,25 @@
     padding-bottom: 4rem;
   }
 
+  label.upload{
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    font-size: 1rem !important;
+    margin: 0 !important;
+  }
+
+  #sfws_files{
+    >div{
+      >span{
+        padding-left:1em;
+        &:first-child{
+          font-weight: bold;
+        }
+      } 
+    }
+  }
+
 
   
   @include mobile{
