@@ -1,0 +1,31 @@
+{{#> layouts/base menu="actualites" title="Groupe Poisson — Toutes les actualités du Groupe Poisson" description="Retrouvez toutes les actualités ou événements du Groupe Poisson et de ses entités."}}
+
+  {{#*inline "breadcrumb-block"}}
+    <li><a href="#">Actualités</a></li>
+  {{/inline}}
+
+  {{#*inline "main-block"}}
+    <section class="actualites__title-section">
+      <div class="container wow fadeInUp">
+          <div class="flex-row flex-row-centered">
+            <div class="item-10 text-center">
+              <h1>
+                Nos actualités
+              </h1>
+            </div>
+          </div>
+          <div class="flex-row flex-row-centered">
+            <div class="item-10 text-center">
+              Découvrez toutes les actualités du Groupe Poisson
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="actualites__articles">
+      <div class="container wow fadeInUp">NEWS_LIST</div>
+    </section>
+
+  {{/inline}}
+
+{{/layouts/base}}

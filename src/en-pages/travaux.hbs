@@ -1,0 +1,75 @@
+{{!-- pages/page-one.hbs --}}
+
+{{#> layouts/base menu="nos-metiers" title="Groupe Poisson - Pôle Travaux" description="Le pôle Travaux du Groupe Poisson vous accompagne dans la réalisation de vos projets."}}
+
+  {{#*inline "breadcrumb-block"}}
+      <li><a href="#">Pôle Travaux</a></li>
+  {{/inline}}
+
+  {{#*inline "main-block"}}
+    
+    <section class="parallax well-1" data-url="assets/parallaxe/travaux-pole-parallaxe.jpg" alt="pole travaux groupe poisson terrassement" data-mobile="true" data-speed="0.3">
+        <div class="container text-center wow fadeInUp">
+          <div class="flex-row flex-row--centered">
+            <div class="item-10" style="height:20em;">
+              <h1 style="padding-top: 5em;text-shadow: 0 0 40px rgba(0, 0, 0, .9), 0 0 7px rgba(0, 0, 0, .7);">
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    <section class="well-2 pole__title-section pole__title-section--travaux">
+      <div class="container text-center wow fadeInUp">
+        <div class="flex-row flex-row--centered">
+          <div class="item-10">
+            <h1 class="title is-size-1 is-black">
+              <img src="/assets/pictos_poles/Picto-travaux.png" class="pole__picto-pole"> Travaux
+            </h1>
+
+            <p class="text is-size-2 text-center">
+              Le pôle Travaux du Groupe Poisson vous accompagne dans la réalisation de vos projets. Experts en travaux de terrassement, Génie Civil, assainissement et géothermie, Axel Duval, Axel Sud et Select Civil répondent aux besoins de tous vos chantiers par des solutions sur mesure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      
+    <section class="well-2 pole__subsidiaries-section pole__subsidiaries-section--travaux">
+      <div class="container text-center wow fadeInUp">
+        <div class="flex-row flex-row--centered">
+          <div class="item-10">
+            <h2 class="title is-size-2 is-bold">Les sociétés du pôle travaux</h2>
+          </div>
+        </div>
+        <div class="flex-row">
+          <div class="item-4">
+            <img src="/assets/logos/axel_duval.jpg">
+            <p class="text is-size-2">
+              Depuis plus de 20 ans, Axel Duval met son savoir-faire et son expérience au profit de vos chantiers professionnels en France et dans les pays limitrophes. Spécialisée dans la réalisation de murettes guides,...
+            </p><br>
+            <a class="gp-button gp-button--gray" href="/en/axel-duval.html">Découvrir Axel Duval</a>
+          </div>
+          <div class="item-4">
+            <img src="/assets/logos/axel_sud.jpg">
+            <p class="text is-size-2">
+              Entreprise de TP, Axel Sud vous accompagne dans la réalisation de vos chantiers. Partenaire idéal des industriels, mais aussi des particuliers, Axel Sud s'appuie sur une expérience de près de 40 ans et un...
+            </p><br>
+            <a class="gp-button gp-button--gray" href="/en/axel-sud.html">Découvrir Axel Sud</a>
+          </div>
+          <div class="item-4">
+            <img src="/assets/logos/select_civil.jpg">
+            <p class="text is-size-2">
+              Select Civil réalise des chantiers de terrassement de masse et de Génie Civil (travaux de voiries, d'assainissement, d'ouvrages de franchissement, construction de cellules d'enfouissement, travaux de béton armé...
+            </p><br> 
+            <a href="http://www.selectcivil.com.au/" class="gp-button gp-button--gray"  target="_blank">Découvrir Select Civil</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+      
+  {{/inline}}
+{{/layouts/base}}

@@ -1,0 +1,32 @@
+{{#> layouts/base menu="recrutement" title="Groupe Poisson — Offre d'emploi"}}
+
+  {{#*inline "breadcrumb-block"}}
+    <li><a href="/en/recrutement.html">Recrutement</a></li>
+    <li><a href="/en/offres-emploi.html">Nos offres d'emploi</a></li>
+    <li><a href="#">JOB_TITLE</a></li>
+  {{/inline}}
+
+  {{#*inline "main-block"}}
+    
+    JOB_CONTENT
+
+    <section class="offre-emploi__form-section">
+      <div class="container wow fadeInUp">
+          <div class="flex-row flex-row--centered">
+            <div class="item-10 text-center">
+              <h1>
+                Postuler
+              </h1>
+            </div>
+          </div>
+          <div class="flex-row flex-row--centered">
+            <div class="item-10 text-center">
+              {{> components/form}}
+            </div>
+          </div>
+        </div>
+    </section>
+
+  {{/inline}}
+
+{{/layouts/base}}

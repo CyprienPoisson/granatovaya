@@ -1,0 +1,304 @@
+<div class="form">
+  <script type="text/javascript">
+  
+    document.addEventListener('DOMContentLoaded', function(){
+      var filesCounter = 0;
+      var uploadCounter = 0;
+      var attachments = {
+        attachment1: null,
+        attachment1Name: null,
+        attachment2: null,
+        attachment2Name: null,
+        attachment3: null,
+        attachment3Name: null,
+      }
+
+      function updateSubmitability(shouldIncrementUploadCounter){
+        if(shouldIncrementUploadCounter === true) {
+          uploadCounter++;
+        } else {
+          uploadCounter--;
+        }
+        var submit = document.querySelector('#sfws_submit')
+        if(uploadCounter > 0) {
+          submit.disabled = true;
+        } else {
+          submit.disabled = false;
+        }
+      }
+
+      try{
+        // Get query string and remove first '?'
+        var queryString = window.location.search.substring(1);
+        var parts = queryString.split('&');
+        var params = {};
+        for( var i = 0; i < parts.length; i++ ){
+          var part = parts[i];
+          var subparts = part.split('=', 2);
+          var k = subparts[0];
+          var v = subparts[1];
+          params[k.toLowerCase()] = v;
+        }
+        var source = params['contact'];
+        if(source){
+          source = decodeURIComponent(source);
+          document.querySelector('#sfws_selectSource').value = source;
+        }
+      }
+      catch(e){
+        console.error('Couldn\'t extract source from URL');
+      }
+
+      document.querySelector('#sfws_upload').addEventListener('change', function(event){
+        filesCounter ++;
+        if(filesCounter === 3){
+          document.querySelector('#sfws_upload_row').style.display = 'none';
+        }
+        if(filesCounter > 3){
+          return;
+        }
+        
+        var fileNumber = filesCounter;
+        var fileId = Math.round(Math.random() * 1000000000000).toString(36) + Math.round(Math.random() * 1000000000000).toString(36);
+        var file = event.target.files[0];
+        var ref = firebase.storage().ref('webSubmissions/'+fileId+'/'+file.name);
+        var uploadTask = ref.put(file);
+        updateSubmitability(true);
+
+        var uiRow = document.createElement('div');
+        var uiFilename = document.createElement('span');
+        uiFilename.textContent = file.name;
+        uiRow.appendChild(uiFilename);
+        var uiProgress = document.createElement('span');
+        uiProgress.textContent = 'Préparation...';
+        uiRow.appendChild(uiProgress);
+
+        var uiRoot = document.querySelector('#sfws_files');
+        uiRoot.append(uiRow);
+
+        document.querySelector('#sfws_files_wrapper').style.display = 'flex';
+
+        uploadTask.on(
+          'state_changed',
+          function(snapshot){
+            // Observe state change events such as progress, pause, and resume
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            uiProgress.textContent = 'Envoi en cours : '+progress.toFixed(0)+'%';
+          },
+          function(error) {
+            uiProgress.textContent = 'Échec de l\'envoi.';
+            updateSubmitability();
+          },
+          function() {
+            uiProgress.textContent = 'Envoyé.';
+            var downloadURL = uploadTask.snapshot.downloadURL;
+            attachments['attachment'+fileNumber] = downloadURL;
+            attachments['attachment'+fileNumber+'Name'] = file.name;
+            updateSubmitability();
+          }
+        );
+        
+
+      }, false);
+
+      window.submitFormToSF = function submitFormToSF(){
+        document.querySelector('#sfws_loading').style.display = 'block';
+        document.querySelector('#sfws_form').style.display = "none";
+
+        try{
+          var firstname = document.querySelector('#sfws_firstname');
+          firstname = firstname.value;
+        }
+        catch(e){
+          firstname = '';
+        }
+        try{
+          var lastname = document.querySelector('#sfws_lastname');
+          lastname = lastname.value;
+        }
+        catch(e){
+          lastname = '';
+        }
+        try{
+          var email = document.querySelector('#sfws_email');
+          email = email.value;
+        }
+        catch(e){
+          email = '';
+        }
+        try{
+          var phone = document.querySelector('#sfws_phone');
+          phone = phone.value;
+        }
+        catch(e){
+          phone = '';
+        }
+        try{
+          var message = document.querySelector('#sfws_message');
+          message = message.value;
+        }
+        catch(e){
+          message = '';
+        }
+        try{
+          var type = document.querySelector('#sfws_type');
+          type = type.value;
+        }
+        catch(e){
+          type = '';
+        }
+        try{
+          var source = document.querySelector('#sfws_source');
+          source = source.value;
+        }
+        catch(e){
+          source = '';
+        }
+        try{
+          var selectSource = document.querySelector('#sfws_selectSource');
+          source = selectSource.value;
+        }
+        catch(e){ }
+        
+        var body = JSON.stringify({
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          phone: phone,
+          message: message,
+          type: type,
+          source: source,
+          attachment1: attachments.attachment1,
+          attachment2: attachments.attachment2,
+          attachment3: attachments.attachment3,
+          attachment1Name: attachments.attachment1Name,
+          attachment2Name: attachments.attachment2Name,
+          attachment3Name: attachments.attachment3Name,
+        });
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "https://groupepoisson.secure.force.com/website/services/apexrest/WebSubmission/", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.onreadystatechange = function() {
+          if (xhttp.readyState === XMLHttpRequest.DONE) {
+            if (xhttp.status === 200) {
+              document.querySelector('#sfws_form').remove();
+              document.querySelector('#sfws_loading').style.display = 'none';
+              document.querySelector('#sfws_success').style.display = 'block';
+            }
+            else{
+              document.querySelector('#sfws_form').style.display = "block";
+              document.querySelector('#sfws_loading').style.display = 'none';
+              document.querySelector('#sfws_error').style.display = 'block';
+            }
+          }
+        };
+        xhttp.send(body);
+        
+        return false;
+      }
+    }, false);
+
+    
+  </script>
+  <form id="sfws_form" onsubmit="return window.submitFormToSF();">
+    <div id="sfws_error" class="flex-row" style="display:none;">
+      <div class="item-12">
+        Une erreur s'est produite, veuillez vérifier vos informations, en particulier votre email.
+      </div>
+    </div>
+    {{#if showSubsidiarySelector}}
+      <div class="flex-row">
+        <div class="item-12">
+          <select id="sfws_selectSource">
+            <option checked=true>Choisissez un destinataire</option>
+            <option value="Akela Interim">
+              Akela Interim — Recrutement en intérim et CDI
+            </option>
+            <option value="Axel Duval">
+              Axel Duval — Travaux de Génie Civil, Fondations et Géothermie
+            </option>
+            <option value="Axel Sud">
+              Axel Sud — Terrassement, Réseaux humides, Réseaux secs, Génie Civil
+            </option>
+            <option value="Brein Transports">
+              Brein Transports — Transports exceptionnels et camions bennes
+            </option>
+            <option value="Maintenance Service">
+              Maintenance Service — Vente, montage et entretien de bâtiments modulaires
+            </option>
+            <option value="Morel">
+              Morel — Location d'engins de travaux publics avec chauffeur
+            </option>
+            <option value="Poisson Formation">
+              Poisson Formation — Organisme de formation, sécurité au travail
+            </option>
+            <option value="SNDM">
+              SNDM — Vente et aménagement de containers maritimes et de stockage
+            </option>
+            <option value="Terre-durable">
+              Terre-durable — Recyclage de matériaux inertes, vente de matériaux en vrac et location de bennes
+            </option>
+            <option value="Terre-net">
+              Terre-net — Location Full Service de matériels de TP et de manutention de produits vrac
+            </option>
+            <option value="">
+              Autre — Général
+            </option>
+          </select>
+        </div>
+      </div>
+    {{/if}}
+    <div class="flex-row">
+      <div class="item-2">
+        <input id="sfws_firstname" type="text" placeholder="Prénom" autocomplete='given-name'>
+      </div>
+      <div class="item-3">
+        <input id="sfws_lastname" type="text" placeholder="Nom" autocomplete='family-name'>
+      </div>
+      <div class="item-4">
+        <input id="sfws_email" type="text" placeholder="Email" autocomplete='email'>
+      </div>
+      <div class="item-3">
+        <input id="sfws_phone" type="text" placeholder="Téléphone" autocomplete='tel'>
+      </div>
+    </div>
+    <div class="flex-row" id="sfws_files_wrapper" style="display:none;">
+      <div class="item-12" id="sfws_files">
+       
+      </div>
+    </div>
+    <div id="sfws_upload_row" class="flex-row">
+      <div class="item-fit">
+        <label class="gp-button gp-button--gray upload">
+          Joindre un fichier (&lt;1Mo)
+          <input id="sfws_upload" type="file" style="position:absolute;top:-100px;">
+        </label>
+      </div>
+    </div>
+    <div class="flex-row">
+      <div class="item-12">
+        <textarea id="sfws_message" placeholder="Votre message"></textarea>
+      </div>
+    </div>
+    <div class="flex-row">
+      <div class="item-12" style="text-align: right;">
+        <button type="submit" id="sfws_submit" class="gp-button gp-button--gray">Envoyer</button>
+      </div>
+    </div>
+  </form>
+
+  <div id="sfws_success" class="flex-row" style="display:none;">
+    <div class="item-12 success_message">
+      Votre message a été envoyé.
+    </div>
+  </div>
+
+  <div id="sfws_loading" class="flex-row" style="display:none;">
+    <div class="item-12 loading_message">
+      Envoi en cours...
+    </div>
+  </div>
+
+</div>

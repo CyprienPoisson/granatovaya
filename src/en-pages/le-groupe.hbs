@@ -1,0 +1,256 @@
+﻿{{!-- pages/page-one.hbs --}}
+
+{{#> layouts/base menu="le-groupe" title="Groupe Poisson" description="Au coeur d'un univers conjuguant l'industrie, le BTP et l'environnement, le Groupe Poisson a développé une gamme de services étendue, depuis la location et l'entretien de matériels TP, les travaux de Génie Civil, de terrassement, de géothermie, de VRD, la maintenance, la réparation et la mise en place de constructions modulaires, jusqu'à l'intérim spécialisé, la formation et le recyclage de matériaux." }}
+
+  {{#*inline "breadcrumb-block"}}
+    <li><a href="#">Le Groupe</a></li>
+  {{/inline}}
+
+  {{#*inline "main-block"}}
+
+<section class="parallax well-1" data-url="assets/parallaxe/recyclage.jpg" data-mobile="true" data-speed="0.3">
+  <div class="container text-center wow fadeInUp">
+    <div class="flex-row flex-row--centered">
+      <div class="item-10" style="height:20em;">
+        <h1 style="padding-top: 5em;text-shadow: 0 0 40px rgba(0, 0, 0, .9), 0 0 7px rgba(0, 0, 0, .7);">
+        </h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="qui-sommes-nous" class="gray1-box">
+  <div class="container text-center wow fadeInUp">
+    <div class="flex-row">
+      <div class="item-12">
+        <h1 class="title is-size-2 is-bold">
+          Le Groupe Poisson
+        </h1>
+        <br>
+        <p class="text is-size-2">
+          Au coeur d'un univers conjuguant l'industrie, le BTP et l'environnement, le Groupe Poisson a développé une gamme de services
+          étendue, depuis la location et l'entretien de matériels TP, les travaux de Génie Civil, de terrassement, de géothermie,
+          de VRD, la maintenance, la réparation et la mise en place de constructions modulaires, jusqu'à l'intérim spécialisé,
+          la formation et le recyclage de matériaux.
+        </p>
+        <p class="text is-size-2">Dirigé par Denis Poisson, le groupe accorde une grande place à l'humain, mettant l'accent sur les compétences. C’est
+          pourquoi ses clients apprécient depuis plus de 40 ans l’efficacité des prestations des différentes sociétés de
+          ce groupe de PME.
+        </p>
+        <p class="text is-size-2">Divisé en trois pôles, Location, Travaux et Services, sa vocation est de répondre à vos besoins lors de la mise en
+          œuvre de vos projets.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="nos-poles" class="use-items-as-sections-on-mobile">
+  <div class="section__half-background--blue"></div>
+  <div class="section__half-background--white"></div>
+  <div class="container">
+    <div class="flex-row">
+      <div class="item-6 wow fadeInLeft blue-box">
+        <div class="">
+          <img src="/assets/voeux-groupepoisson-2018.gif" alt="gif groupe poisson meilleurs voeux">
+        </div>
+      </div>
+      <div class="item-6 white-box">
+        <h2 class="title is-size-2 is-bold" style="text-align:center">
+          Nos pôles
+        </h2>
+        <div class="le-groupe__pole-pictos-wrapper">
+          {{> components/poles-block}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="historique" class="green-box">
+  <div class="container wow fadeInUp">
+    <div class="flex-row flex-row--centered">
+      <div class="item-10">
+        <h2 class="title is-size-2 is-bold" style="text-align:center">
+          Historique
+        </h2>
+      </div>
+    </div>
+    <div class="flex-row">
+      <div class="item-6 content">
+        <p class="text is-size-2">
+          <strong>1974</strong>
+          <br>1ère location d'une pelle avec chauffeur pour des travaux de terrassement.</p>
+        <p class="text is-size-2">
+          <strong>1980</strong>
+          <br>Création de la marque
+          <strong>Terre-net Poisson</strong> qui propose la location de matériels sans chauffeur.</p>
+        <p class="text is-size-2">
+          <strong>1984</strong>
+          <br>Création de
+          <strong>Maintenance Service</strong> pour l'entretien et la réparation de bungalows de chantiers.</p>
+        <p class="text is-size-2">
+          <strong>1988</strong>
+          <br>Reprise de
+          <strong>Morel</strong>, entreprise spécialisée dans la location de matériel TP avec chauffeur.</p>
+        <p class="text is-size-2">
+          <strong>1996</strong>
+          <br>Création d'
+          <strong>Axel Génie Civil</strong> qui réalise des ouvrages de Génie Civil liés aux travaux de fondations.</p>
+        <p class="text is-size-2">
+          <strong>1997</strong>
+          <br>Reprise de la société Bernardoni TP, près d'Avignon, qui effectue des travaux de voirie et réseaux, et depuis 2003,
+          du recyclage de matériaux.</p>
+        <p class="text is-size-2">
+          <strong>2000</strong>
+          <br>Création de l'agence de Travail Temporaire
+          <strong>Akela Intérim</strong>, spécialisée dans la mise à disposition de personnel intérimaire pour le bâtiment, le déchet
+          et les Travaux Publics.</p>
+        <p class="text is-size-2">
+          <strong>2001</strong>
+          <br>Rachat de la société
+          <strong>Select Civil</strong>, en Australie, qui loue du matériel, effectue des travaux de terrassement et de Génie Civil.</p>
+        <p class="text is-size-2">
+          <strong>2003</strong>
+          <br>Création de l'activité Recyclage chez Bernardoni TP.</p>
+      </div>
+      <div class="item-6 content">
+        <p class="text is-size-2">
+          <strong>2007</strong>
+          <br>Reprise de la société Duval à Gretz-Armainvilliers qui réalise du terrassement, des travaux d'assainissement et
+          de voirie.</p>
+        <p class="text is-size-2">
+          <strong>2009</strong>
+          <br>Reprise de la société
+          <strong>Brein Transports</strong>, spécialisée dans le transport exceptionnel.</p>
+        <p class="text is-size-2">
+          <strong>2010</strong>
+          <br>Ouverture de l'agence Grand Ouest située à Grand Fougeray.</p>
+        <p class="text is-size-2">
+          <strong>2011</strong>
+          <br>Reprise de la société
+          <strong>SNDM</strong>, spécialisée dans le négoce de containers.</p>
+        <p class="text is-size-2">
+          <strong>2013</strong>
+          <br>Création de l'organisme de formation et de sécurité au travail
+          <strong>Poisson Formation</strong>.</p>
+        <p class="text is-size-2">
+          <strong>2015</strong>
+          <br>Implantation à Brillon d'un nouveau site Terre-net Groupe Poisson après la reprise de Conemat.</p>
+        <p class="text is-size-2">
+          <strong>2016</strong>
+          <br>Bernardoni TP devient
+          <strong>Axel Sud</strong> et Bernardoni Recyclage devient
+          <strong>Terre-durable</strong>.</p>
+        <p class="text is-size-2">
+          <strong>2016</strong>
+          <br>Modernisation de l'identité graphique du Groupe Poisson en adéquation avec son évolution structurelle.</p>
+        <p class="text is-size-2">
+          <strong>2017</strong>
+          <br>Reprise de
+          <strong>Marcel Equipment Limited</strong>, au Canada, spécialisée dans le rebuilt et le négoce d'engins TP.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="infographie" class="white-box">
+  <div class="container text-center wow fadeInUp">
+    <div class="flex-row flex-row--centered">
+      <div class="item-10">
+        <h1 class="title is-size-2 is-bold">
+          Infographie
+        </h1>
+      </div>
+    </div>
+    <div class="flex-row flex-row--centered">
+      <div class="item-10">
+        <img src="/assets/infographie-groupe-poisson.png" alt="infographie groupe poisson">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="implantations" class="blue1-box">
+  <div class="container text-center wow fadeInUp">
+    <div class="flex-row flex-row--centered">
+      <div class="item-10">
+        <h1 class="title is-size-2 is-bold">
+          Implantations
+        </h1>
+      </div>
+    </div>
+    <div class="flex-row flex-row--centered">
+      <div class="item-10">
+        <img src="/assets/implantations-groupe-poisson.png" alt="implantations mondiales groupe poisson">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="white-box">
+  <div class="container text-center wow fadeInUp">
+    <div class="flex-row flex-row--centered">
+      <div class="item-10">
+        <h1 class="title is-size-2 is-bold">
+          Contact
+        </h1>
+      </div>
+    </div>
+    <div class="flex-row flex-row--centered">
+      <div class="item-4 text-left">
+        {{>components/address site="gretz"}}
+      </div>
+      <div class="item-4 text-left text-right--desktop">
+        {{>components/address site="brillon"}}
+      </div>
+    </div>
+    <div class="flex-row flex-row--centered">
+      <div class="item-4 text-left">
+        {{>components/address site="roquemaure"}}
+      </div>
+      <div class="item-4 text-left text-right--desktop">
+        {{>components/address site="grand-fougeray"}}
+      </div>
+    </div>
+    <div class="flex-row flex-row--centered">
+      <div class="item-10">
+        <a class="gp-button">Contacter le Groupe Poisson</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="gray4-box">
+  <div class="container">
+    <div class="flex-row">
+      <div class="item-7 wow fadeIn text-box">
+        <h2 class="title is-size-2 is-bold">A la Une</h2>
+        <h5 class="title is-size-3 is-bold">Belle année 2018 !</h5>
+        <p class="text is-size-2">Toute l'équipe du Groupe Poisson vous présente ses meilleurs voeux !</p>
+        <div class="text-box__buttons">
+          <a href="/en/actualites/0072/belle-annee-2018.html" class="gp-button gp-button--gray">Lire la suite</a>
+        </div>
+      </div>
+      <div class="item-fill item--no-mobile"></div>
+      <div class="item-4 wow fadeIn download-box" data-wow-delay="0.5s">
+        <img src="/assets/plaquettes/groupe-poisson-plaquette.jpg" alt="plaquette groupe poisson">
+        <div>
+          <a href="/assets/plaquettes/groupe-poisson-plaquette.pdf" target="_blank" class="gp-button gp-button--gray">Télécharger la plaquette</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      
+  {{/inline}}
+{{/layouts/base}}

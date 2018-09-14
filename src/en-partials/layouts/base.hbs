@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/icon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-32587173-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-32587173-6');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,700,900" rel="stylesheet">
+    
+    <title>
+      {{#if title}}
+        {{title}}
+      {{else}}
+        Groupe Poisson
+      {{/if}}
+    </title>
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Links -->
+    <link rel="stylesheet" href="/css/owl-carousel.css"/>
+
+    <!--JS-->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+            <img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+                 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+        </a>
+    </div>
+    <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+    <script src='/js/device.min.js'></script>
+
+    {{#> head-block}}
+      {{!-- Custom <head> content per page could be added. --}}
+    {{/head-block}}
+
+    <link href="/css/overrides.css" rel="stylesheet">
+
+  </head>
+  <body class="groupepoisson">
+    <div class="page">
+    
+      <header> 
+        {{#> header-block}}
+            {{!--
+              The `includes/header` partial is the default content,
+              but can be overridden.
+            --}}
+          {{!-- Header content goes here. --}}
+          {{> includes/header menu=menu }}
+        {{/header-block}}
+      </header>
+
+      <main>
+        {{#unless no-breadcrumb}}
+          <section class="gp-breadcrumb no-spacing">
+            <div class="container">
+              <ol class="breadcrumb">
+                <li><a href="/en/">Accueil</a></li>
+                {{#> breadcrumb-block}}
+                  {{!-- Breadcrumb content goes here. --}}
+                {{/breadcrumb-block}}
+              </ol>
+            </div>
+          </section>
+        {{/unless}}
+
+        {{#> main-block}}
+          {{!-- Main content goes here. --}}
+        {{/main-block}}
+      </main>
+
+      <footer>
+        {{#> footer-block}}
+          {{!--
+            The `includes/footer` partial is the default content,
+            but can be overridden.
+          --}}
+          {{> includes/footer }}
+        {{/footer-block}}
+      </footer>
+
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAeXPsAHw057Ex9wqRO5PVC6mDJLLg4VvU",
+        authDomain: "granatovaya-prod.firebaseapp.com",
+        databaseURL: "https://granatovaya-prod.firebaseio.com",
+        projectId: "granatovaya-prod",
+        storageBucket: "granatovaya-prod.appspot.com",
+        messagingSenderId: "373205465342"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->         
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/tm-scripts.js"></script>    
+  
+    {{#> scripts-block}}
+      {{!-- Custom scripts per page can be added. --}}
+    {{/scripts-block}}
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5abdf1949e84bfb6"></script>
+
+    <!-- </script> -->
+  </body>
+</html>

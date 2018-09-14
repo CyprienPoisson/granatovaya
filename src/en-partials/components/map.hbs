@@ -1,0 +1,133 @@
+<section class="no-spacing">
+  <div id="map" class="gp-google-map"></div>
+</section>
+<script>
+  function initMap() {
+    var axelDuval = {label:'Axel Duval', url:'/en/axel-duval.html'};
+    var akelaInterim = {label:'Akela Intérim', url:'/en/akela-interim.html'};
+    var axelSud = {label:'Axel Sud', url:'/en/axel-sud.html'};
+    var breinTransports = {label:'Brein Transports', url:'/en/brein-transports.html'};
+    var maintenanceService = {label:'Maintenance Service', url:'/en/maintenance-service.html'};
+    var marcelEquipment = {label:'Marcel Equipment Limited', url:'https://www.marcelequipment.com', targetBlank: true};
+    var morel = {label:'Morel', url:'/en/morel.html'};
+    var poissonFormation = {label:'Poisson Formation', url:'/en/poisson-formation.html'};
+    var selectCivil = {label:'Select Civil', url:'http://www.selectcivil.com.au', targetBlank: true};
+    var sndm = {label:'SNDM', url:'/en/sndm.html'};
+    var terreDurable = {label:'Terre-durable', url:'/en/terre-durable.html'};
+    var terreNet = {label:'Terre-net', url:'/en/terre-net.html'};
+
+    var markers = [
+      {
+        position: {lat: 48.733094, lng: 2.727616},
+        address: "ZI Ampère<br>54 rue de Maison Rouge<br>77220 Gretz-Armainvilliers — France",
+        links: [axelDuval, breinTransports, maintenanceService, morel, poissonFormation, sndm, terreNet],
+      },
+      {
+        position: {lat:44.044895, lng:4.791645},
+        address: "201 avenue du Général Leclerc<br>30150 Roquemaure — France",
+        links: [axelSud, terreDurable, terreNet],
+      },
+      {
+        position: {lat:47.745607, lng:-1.723515},
+        address: "Parc d'activités de Grand Fougeray<br>Espace Nord — 12 avenue CAPE 137<br>35390 Grand-Fougeray — France",
+        links: [terreNet],
+      },
+      {
+        position: {lat:50.440135, lng:3.354309},
+        address: "ZI Sars et Rosières<br>12 rue des Neuf Bonniers<br>59178 Brillon — France",
+        links: [terreNet],
+      },
+      {
+        position: {lat:48.808509, lng:2.509177},
+        address: "137, bd de Champigny<br>94210 La Varenne-Saint-Hilaire — France",
+        links: [akelaInterim],
+      },
+      {
+        position: {lat:-34.465734, lng:150.804597},
+        address: "73 Reddalls Rd<br>Kembla Grange NSW 2526<br>Australia",
+        links: [selectCivil],
+      },
+      {
+        position: {lat:42.932432, lng:-81.180640},
+        address: "1000 Progress Drive<br>London, Ontario<br>N6N 1B8<br>Canada",
+        links: [marcelEquipment],
+      },
+    ];
+
+    var infowindow = new google.maps.InfoWindow();
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 2,
+      center: {lat: 8, lng: 34},
+      scrollwheel: false,
+      styles: [{
+          "featureType": "all",
+          "elementType": "all",
+          "stylers": [{
+              "visibility": "on"
+            },
+            {
+              "hue": "#006699"
+            },
+            {
+              "saturation": -18
+            },
+            {
+              "lightness": 47
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "all",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        },
+        {
+          "featureType": "landscape",
+          "elementType": "all",
+          "stylers": [{
+            "visibility": "simplified"
+          }]
+        },
+        {
+          "featureType": "administrative.country",
+          "elementType": "all",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        }
+      ]
+    });
+
+    function initMarker(markerIndex){
+      var marker = markers[markerIndex];
+      var m = new google.maps.Marker({
+        position: marker.position,
+        map: map,
+        icon: '/assets/gmap_marker_active.png',
+      });
+      var windowContent = '';
+      for (var i = 0; i < marker.links.length; i++) {
+        var link = marker.links[i];
+        windowContent += '<div class="gp-google-map__info"><div><a href="' + link.url + '" ';
+        if(link.targetBlank){
+          windowContent += 'target="blank" ';
+        }
+        windowContent += '>' + link.label + '</a></div>';
+      }
+      windowContent += '<hr>' + marker.address;
+      windowContent += '</div>';
+      google.maps.event.addListener(m, 'click', function() {
+        infowindow.setContent(windowContent);
+        infowindow.open(map, m);
+      });
+    }
+
+    for (var i = 0; i < markers.length; i++) {
+      initMarker(i);
+    }
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeXPsAHw057Ex9wqRO5PVC6mDJLLg4VvU&callback=initMap">
+</script>
