@@ -1,7 +1,7 @@
 // gulpfile.js
-
 const gulp = require('gulp');
 const handlebars = require('gulp-compile-handlebars');
+const handlebars_en = require('gulp-compile-handlebars');
 const rename = require('gulp-rename');
 const clean = require('gulp-clean');
 
@@ -71,9 +71,34 @@ gulp.task('build:html', () => {
 });
 
 /**
+ * Build /en html from hbs and copy.
+ * Be careful!!: build:en-html MUST RUN AFTER build:html ENDED to avoid
+ * partials mismatchs
+ */
+gulp.task('build:en-html', ['build:html',], () => {
+  return gulp.src('./src/en-pages/**/*.hbs')
+    .pipe(handlebars_en({}, {
+      ignorePartials: true,
+      batch: ['./src/en-partials'],
+      helpers : {
+        menuActive: function(page, item){
+          return page==item ? 'active' : '';
+        },
+        eq(a,b){
+          return a===b;
+        }
+      }
+    }))
+    .pipe(rename({
+      extname: '.html'
+    }))
+    .pipe(gulp.dest('./dist/en'));
+});
+
+/**
  * Copy files needed for functions in functions dir
  */
-gulp.task('copy:functions', ['copy:monster', 'copy:assets', 'build:sass', 'build:html'], ()=>{
+gulp.task('copy:functions', ['copy:monster', 'copy:assets', 'build:sass','build:en-html'], ()=>{
   return gulp.src([
       './dist/toutes-nos-actualites.html',
       './dist/actualite.html',
@@ -84,14 +109,31 @@ gulp.task('copy:functions', ['copy:monster', 'copy:assets', 'build:sass', 'build
 });
 
 /**
+ * Copy files needed for functions in functions dir
+ */
+gulp.task('copy:en-functions', ['copy:functions'], ()=>{
+  return gulp.src([
+      './dist/en/toutes-nos-actualites.html',
+      './dist/en/actualite.html',
+      './dist/en/offres-emploi.html',
+      './dist/en/offre-emploi.html',
+    ], {base: './dist/en'})
+    .pipe(gulp.dest('./functions/pages/en'));
+});
+
+/**
  * Cleanup dist dir
  */
-gulp.task('cleanup:dist', ['copy:functions'], ()=>{
+gulp.task('cleanup:dist', ['copy:en-functions'], ()=>{
   return gulp.src([
       './dist/toutes-nos-actualites.html',
       './dist/actualite.html',
       './dist/offres-emploi.html',
       './dist/offre-emploi.html',
+      './dist/en/toutes-nos-actualites.html',
+      './dist/en/actualite.html',
+      './dist/en/offres-emploi.html',
+      './dist/en/offre-emploi.html',
     ], {base: './dist', read: false})
     .pipe(clean());
 });
