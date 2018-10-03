@@ -252,16 +252,16 @@
     {{/if}}
     <div class="flex-row">
       <div class="item-2">
-        <input id="sfws_firstname" type="text" placeholder="Prénom" autocomplete='given-name'>
+        <input id="sfws_firstname" type="text" placeholder="First name" autocomplete='given-name'>
       </div>
       <div class="item-3">
-        <input id="sfws_lastname" type="text" placeholder="Nom" autocomplete='family-name'>
+        <input id="sfws_lastname" type="text" placeholder="Last name" autocomplete='family-name'>
       </div>
       <div class="item-4">
         <input id="sfws_email" type="text" placeholder="Email" autocomplete='email'>
       </div>
       <div class="item-3">
-        <input id="sfws_phone" type="text" placeholder="Téléphone" autocomplete='tel'>
+        <input id="sfws_phone" type="text" placeholder="Phone" autocomplete='tel'>
       </div>
     </div>
     <div class="flex-row" id="sfws_files_wrapper" style="display:none;">
@@ -272,32 +272,32 @@
     <div id="sfws_upload_row" class="flex-row">
       <div class="item-fit">
         <label class="gp-button gp-button--gray upload">
-          Joindre un fichier (&lt;1Mo)
+          Join a file (&lt;1Mo)
           <input id="sfws_upload" type="file" style="position:absolute;top:-100px;">
         </label>
       </div>
     </div>
     <div class="flex-row">
       <div class="item-12">
-        <textarea id="sfws_message" placeholder="Votre message"></textarea>
+        <textarea id="sfws_message" placeholder="Your message"></textarea>
       </div>
     </div>
     <div class="flex-row">
       <div class="item-12" style="text-align: right;">
-        <button type="submit" id="sfws_submit" class="gp-button gp-button--gray">Envoyer</button>
+        <button type="submit" id="sfws_submit" class="gp-button gp-button--gray">Send</button>
       </div>
     </div>
   </form>
 
   <div id="sfws_success" class="flex-row" style="display:none;">
     <div class="item-12 success_message">
-      Votre message a été envoyé.
+      Your message has been send.
     </div>
   </div>
 
   <div id="sfws_loading" class="flex-row" style="display:none;">
     <div class="item-12 loading_message">
-      Envoi en cours...
+      Sending in progress...
     </div>
   </div>
 
