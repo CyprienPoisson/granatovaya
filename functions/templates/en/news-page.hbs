@@ -1,0 +1,46 @@
+<section class="actualite__article">
+  <div class="container wow fadeInUp">
+
+    <div class="flex-row">
+      <div class="item-fill"></div>
+      <div class="item-fit">
+        <div class="addthis_inline_share_toolbox"></div>
+      </div>
+      <div class="item-1"></div>
+    </div>
+
+    <div class="flex-row flex-row--centered">
+      <div class="item-10">
+        
+        <div class="actualites__article content--sf-richtext">
+          {{{news.content}}}
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-row flex-row--centered">
+      <div class="item-fit">
+        <div class="addthis_inline_share_toolbox"></div>
+      </div>
+    </div>
+
+    <div class="flex-row flex-row--centered">
+      <div class="item-10">
+        <div style="display:flex;flex-direction:row;">
+          <div class="flex: 0 0 auto;">
+            {{#if previousNews}}
+              <a href="/actualites/{{previousNews.id}}/{{previousNews.slug}}.html" class="gp-button gp-button--gray">Previous</a>
+            {{/if}}
+          </div>
+          <div style="flex: 1 1 auto;"></div>
+          <div class="flex: 0 0 auto;">
+            {{#if nextNews}}
+              <a href="/actualites/{{nextNews.id}}/{{nextNews.slug}}.html" class="gp-button gp-button--gray">Next</a>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

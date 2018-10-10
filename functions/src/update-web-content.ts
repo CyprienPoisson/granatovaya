@@ -1,4 +1,3 @@
-import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 
 import * as cheerio from 'cheerio';
@@ -7,23 +6,30 @@ import Slugger from './slugger';
 const recordTypes = {
   '0121p000000wrPFAAY': {
     type: 'news',
-    key: 'news',
+    key: 'news'
   },
   '0121p000000wrPEAAY': {
     type: 'jobOffer',
-    key: 'jobOffers',
+    key: 'jobOffers'
   }
 };
 
-const firebaseConfig = functions.config().firebase;
-firebaseConfig.databaseAuthVariableOverride = {
-  uid: "update-service",
-};
+let database = null;
+function initDatabase() {
+  if (database === null) {
+    const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
+    firebaseConfig.databaseAuthVariableOverride = {
+      uid: 'update-service'
+    };
 
-const firebaseUpdateApp = admin.initializeApp(firebaseConfig, 'update-web-content');
-const db = firebaseUpdateApp.database();
+    const app = admin.initializeApp(firebaseConfig, 'update-web-content');
+    database = app.database();
+  }
+  return database;
+}
 
-export default async function updateWebContent(req, res){
+export default async function updateWebContent(req, res) {
+  const db = initDatabase();
   const webContent = req.body;
 
   console.log(webContent);
@@ -34,30 +40,40 @@ export default async function updateWebContent(req, res){
 
   let content = webContent.Content__c;
 
-  if(typeof content === 'string'){
+  if (typeof content === 'string') {
     content = content.replace(
       /https\:\/\/[^\/]*.force.com\/servlet\/rtaImage\?/g,
       'https://groupepoisson.secure.force.com/website/servlet/rtaImage?'
     );
-  }
-  else{
+  } else {
     content = '';
   }
 
   const $ = cheerio.load(content);
 
-  const firstImage = $('img').first().attr('src');
+  const firstImage = $('img')
+    .first()
+    .attr('src');
 
   const excerpt = $('*')
-      .contents()
-      .map( (i, e) => e.type === 'text' ? $(e).text() : '' )
-      .get()
-      .join(' ')
-      .slice(0, 500)
-      .trim()
-      .replace(/\s+/gi, ' ');
+    .contents()
+    .map((i, e) => (e.type === 'text' ? $(e).text() : ''))
+    .get()
+    .join(' ')
+    .slice(0, 500)
+    .trim()
+    .replace(/\s+/gi, ' ');
 
-  if( webContent.Published__c ){
+  let language;
+  switch (webContent.Language__c) {
+    case 'Anglais':
+      language = 'en';
+      break;
+    default:
+      language = 'fr';
+  }
+
+  if (webContent.Published__c) {
     await ref.set({
       id: webContent.Name,
 
@@ -70,11 +86,11 @@ export default async function updateWebContent(req, res){
       slug: Slugger.toSlug(webContent.Title__c),
       subsidiary: webContent.Subsidiary__c || null,
       title: webContent.Title__c,
-      
-      createdAt: webContent.CreatedDate,
+      language,
+
+      createdAt: webContent.CreatedDate
     });
-  }
-  else{
+  } else {
     await ref.remove();
   }
 
