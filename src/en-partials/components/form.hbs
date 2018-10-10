@@ -205,46 +205,46 @@
   <form id="sfws_form" onsubmit="return window.submitFormToSF();">
     <div id="sfws_error" class="flex-row" style="display:none;">
       <div class="item-12">
-        Une erreur s'est produite, veuillez vérifier vos informations, en particulier votre email.
+        There is an error. Please, check your informations, especially your email adress.
       </div>
     </div>
     {{#if showSubsidiarySelector}}
       <div class="flex-row">
         <div class="item-12">
           <select id="sfws_selectSource">
-            <option checked=true>Choisissez un destinataire</option>
+            <option checked=true>Choose a recipient</option>
             <option value="Akela Interim">
-              Akela Interim — Recrutement en intérim et CDI
+              Akela Interim — Employment Agency for temporary and permanent staff
             </option>
             <option value="Axel Duval">
-              Axel Duval — Travaux de Génie Civil, Fondations et Géothermie
+              Axel Duval — Civil engineering works, foundations and geothermal works
             </option>
             <option value="Axel Sud">
-              Axel Sud — Terrassement, Réseaux humides, Réseaux secs, Génie Civil
+              Axel Sud — Earthworks and civil engineering works, water distribution, sewerage and drainage, and electrical, gas and ICT distribution
             </option>
             <option value="Brein Transports">
-              Brein Transports — Transports exceptionnels et camions bennes
+              Brein Transports — Road haulage of oversized and non-standard loads and rental of skip loader trucks
             </option>
             <option value="Maintenance Service">
-              Maintenance Service — Vente, montage et entretien de bâtiments modulaires
+              Maintenance Service — Sale, assembly and maintenance of modular buildings
             </option>
             <option value="Morel">
-              Morel — Location d'engins de travaux publics avec chauffeur
+              Morel — Public works construction machine rental with driver-operator
             </option>
             <option value="Poisson Formation">
-              Poisson Formation — Organisme de formation, sécurité au travail
+              Poisson Formation — Organisation for training and occupational safety awarness
             </option>
             <option value="SNDM">
-              SNDM — Vente et aménagement de containers maritimes et de stockage
+              SNDM — Sale and conversion of maritime and storage containers
             </option>
             <option value="Terre-durable">
-              Terre-durable — Recyclage de matériaux inertes, vente de matériaux en vrac et location de bennes
+              Terre-durable — Recycling of inert materials, sale of bulk materials and rental of skips
             </option>
             <option value="Terre-net">
-              Terre-net — Location Full Service de matériels de TP et de manutention de produits vrac
+              Terre-net — Full Service rental of construction equipment and bulk material handling equipment
             </option>
-            <option value="">
-              Autre — Général
+            <option value="Groupe Poisson">
+              Other — General
             </option>
           </select>
         </div>
@@ -252,16 +252,16 @@
     {{/if}}
     <div class="flex-row">
       <div class="item-2">
-        <input id="sfws_firstname" type="text" placeholder="Prénom" autocomplete='given-name'>
+        <input id="sfws_firstname" type="text" placeholder="First name" autocomplete='given-name'>
       </div>
       <div class="item-3">
-        <input id="sfws_lastname" type="text" placeholder="Nom" autocomplete='family-name'>
+        <input id="sfws_lastname" type="text" placeholder="Last name" autocomplete='family-name'>
       </div>
       <div class="item-4">
         <input id="sfws_email" type="text" placeholder="Email" autocomplete='email'>
       </div>
       <div class="item-3">
-        <input id="sfws_phone" type="text" placeholder="Téléphone" autocomplete='tel'>
+        <input id="sfws_phone" type="text" placeholder="Phone" autocomplete='tel'>
       </div>
     </div>
     <div class="flex-row" id="sfws_files_wrapper" style="display:none;">
@@ -272,32 +272,32 @@
     <div id="sfws_upload_row" class="flex-row">
       <div class="item-fit">
         <label class="gp-button gp-button--gray upload">
-          Joindre un fichier (&lt;1Mo)
+          Join a file (&lt;1Mo)
           <input id="sfws_upload" type="file" style="position:absolute;top:-100px;">
         </label>
       </div>
     </div>
     <div class="flex-row">
       <div class="item-12">
-        <textarea id="sfws_message" placeholder="Votre message"></textarea>
+        <textarea id="sfws_message" placeholder="Your message"></textarea>
       </div>
     </div>
     <div class="flex-row">
       <div class="item-12" style="text-align: right;">
-        <button type="submit" id="sfws_submit" class="gp-button gp-button--gray">Envoyer</button>
+        <button type="submit" id="sfws_submit" class="gp-button gp-button--gray">Send</button>
       </div>
     </div>
   </form>
 
   <div id="sfws_success" class="flex-row" style="display:none;">
     <div class="item-12 success_message">
-      Votre message a été envoyé.
+      Your message has been send.
     </div>
   </div>
 
   <div id="sfws_loading" class="flex-row" style="display:none;">
     <div class="item-12 loading_message">
-      Envoi en cours...
+      Sending in progress...
     </div>
   </div>
 
