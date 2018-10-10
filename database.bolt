@@ -10,9 +10,11 @@ path / {
 path /content/news {
   read(){ isUpdateService() }
   write(){ isUpdateService() }
+  index() { "language" }
 }
 
 path /content/jobOffers {
   read(){ isUpdateService() }
   write(){ isUpdateService() }
+  index() { "language" }
 }

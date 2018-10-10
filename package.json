@@ -4,7 +4,7 @@
   "description": "Groupe Poisson website generator.",
   "main": "index.js",
   "devDependencies": {
-    "firebase-bolt": "^0.8.2",
+    "firebase-bolt": "^0.8.4",
     "firebase-tools": "^3.10.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/CyprienPoisson/granatovaya/issues"
   },
-  "homepage": "https://github.com/CyprienPoisson/granatovaya#readme"
+  "homepage": "https://github.com/CyprienPoisson/granatovaya#readme",
+  "dependencies": {
+    "firebase-functions": "^2.0.5"
+  }
 }
