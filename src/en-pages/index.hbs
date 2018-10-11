@@ -1,0 +1,84 @@
+{{!-- pages/index.hbs --}}
+
+{{#> layouts/base menu="index" title="Groupe Poisson" no-breadcrumb=true}}
+
+  {{#*inline "main-block"}}
+    <section class="parallax well-1" data-url="/assets/parallaxe/machines.jpg" data-mobile="true" data-speed="0.3">
+      <div class="container text-center wow fadeInUp">
+        <div class="flex-row flex-row--centered">
+          <div class="item-10" style="height:20em;">
+            <h1 style="padding-top: 5em;text-shadow: 0 0 40px rgba(0, 0, 0, .9), 0 0 7px rgba(0, 0, 0, .7);">
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END Parallax -->
+
+    <!-- Section -->
+    <section class="use-items-as-sections-on-mobile">
+      <div class="section__half-background--blue"></div>
+      <div class="section__half-background--white"></div>
+      <div class="container">
+        <div class="flex-row">
+          <div class="item-6 wow fadeInLeft blue-box">
+            <div class="index__half-block-left">
+              <h2 class="title is-siz-2 is-bold">About us</h2>
+              <p class="text">
+                Groupe Poisson has developed a wide range of activities and services to satisfy the needs of the industrial, construction and environmental sectors. These activities include renting and maintaining construction equipment, undertaking civil engineering, earth-moving and geothermal works, installing roads and associated services, refurbishing and...
+              </p>
+              <div class="text-right">
+                <a href="the-group.html" class="link">Read more</a>
+              </div>
+            </div>
+          </div>
+          <div class="item-6 white-box">
+            <div class="index__half-block-right">
+              {{> components/poles-block}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END Section -->
+
+
+   {{!-- <section class="use-items-as-sections-on-mobile">
+      <div class="section__half-background--gray"></div>
+      <div class="section__half-background--green"></div>
+      <div class="container">
+        <div class="flex-row">
+          <div class="item-6 wow fadeInLeft gray-box">
+            <div class="index__half-block-left">
+              <h2 class="title is-size-2 is-bold">Dernière actualité</h2>
+              <h3 class="title is-size-3 is-bold">Nouvelle acquisition : la Zaxis135US-5B !</h3>
+              <p class="text">
+              Afin de répondre aux exigences du secteur, Morel a enrichi son parc de machines d’une pelle tunnel Zaxis135US-5B, commercialisée par HITACHI.
+              </p>
+              <div class="text-right">
+                <a href="/en/actualites/0071/nouvelle-acquisition-la-zaxis135us-5b.html" class="link">Lire la suite</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-6 wow fadeInRight green-box">
+            <div class="index__half-block-right">
+              <h2 class="title is-siwe-2 is-bold">A la Une</h2>
+                <h3 class="title is-size-3 is-bold">Le Groupe Poissson recrute !</h3>
+                  <p class="text">
+                  De nombreuses offres d'emploi sont disponibles dans notre espace recrutement. N'hésitez plus, rejoignez-nous !
+                  </p>
+                    <div class="text-right">
+                    <a href="/en/job-vacancies" class="link">Espace Recrutement</a>
+                    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>--}}
+
+    {{> components/map}}
+
+  {{/inline}}
+
+{{/layouts/base}}
