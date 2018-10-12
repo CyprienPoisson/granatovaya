@@ -20,11 +20,11 @@
         "function": "content"
       },
       {
-        "source": "/job-vacancies.html",
+        "source": "/en/job-vacancies.html",
         "function": "content"
       },
       {
-        "source": "/job-vacancies/**",
+        "source": "/en/job-vacancies/**",
         "function": "content"
       }
     ]
