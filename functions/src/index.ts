@@ -19,6 +19,6 @@ appContent.get('/offres-emploi.html', ServeContent.jobsIndex);
 appContent.get('/offres-emploi/:id/:slug', ServeContent.jobPage);
 appContent.get('/:language/toutes-nos-actualites.html', ServeContent.newsIndex);
 appContent.get('/:language/actualites/:id/:slug', ServeContent.newsPage);
-appContent.get('/:language/offres-emploi.html', ServeContent.jobsIndex);
-appContent.get('/:language/offres-emploi/:id/:slug', ServeContent.jobPage);
+appContent.get('/:language/job-vacancies.html', ServeContent.jobsIndex);
+appContent.get('/:language/jobs/:id/:slug', ServeContent.jobPage);
 export const content = functions.https.onRequest(appContent);

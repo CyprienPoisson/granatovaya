@@ -23,6 +23,14 @@
         "source": "/offres-emploi/**",
         "function": "content"
       }
+      {
+        "source": "/job-vacancies.html",
+        "function": "content"
+      },
+      {
+        "source": "/job-vacancies/**",
+        "function": "content"
+      }
     ]
   },
   "database": {
