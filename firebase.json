@@ -1,11 +1,7 @@
 {
   "hosting": {
     "public": "dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "/toutes-nos-actualites.html",
@@ -22,7 +18,7 @@
       {
         "source": "/offres-emploi/**",
         "function": "content"
-      }
+      },
       {
         "source": "/job-vacancies.html",
         "function": "content"
