@@ -442,6 +442,10 @@
                             document.querySelector('#sfws_form').remove();
                             document.querySelector('#sfws_loading').style.display = 'none';
                             document.querySelector('#sfws_success').style.display = 'block';
+                              // Call Indeed.com tracking URL
+                              var xhttp = new XMLHttpRequest();
+                              xhttp.open("GET", "https://conv.indeed.com/pagead/conv/4261161367993511/", true);
+                              xhttp.send(body);
                           }
                           else{
                             document.querySelector('#sfws_form').style.display = "block";
