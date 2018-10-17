@@ -442,10 +442,6 @@
                             document.querySelector('#sfws_form').remove();
                             document.querySelector('#sfws_loading').style.display = 'none';
                             document.querySelector('#sfws_success').style.display = 'block';
-                              // Call Indeed.com tracking URL
-                              var indeedCall = new XMLHttpRequest();
-                              indeedCall.open("GET", "https://conv.indeed.com/pagead/conv/4261161367993511/", true);
-                              indeedCall.send(body);
                           }
                           else{
                             document.querySelector('#sfws_form').style.display = "block";
@@ -510,6 +506,19 @@
                 <div id="sfws_success" class="flex-row" style="display:none;">
                   <div class="item-12 success_message">
                     Votre message a été envoyé.
+                      <!-- Begin INDEED conversion code -->
+                      <script type="text/javascript">
+                      /* <![CDATA[ */
+                      var indeed_conversion_id = '4261161367993511';
+                      var indeed_conversion_label = '';
+                      /* ]]> */
+                      </script>
+                      <script type="text/javascript" src="//conv.indeed.com/applyconversion.js">
+                      </script>
+                      <noscript>
+                      <img height=1 width=1 border=0 src="//conv.indeed.com/pagead/conv/4261161367993511/?script=0">
+                      </noscript>
+                      <!-- End INDEED conversion code -->
                   </div>
                 </div>
               
