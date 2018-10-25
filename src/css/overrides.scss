@@ -199,21 +199,37 @@ body.groupepoisson {
       > .container {
         > p {
           text-align: center;
-          > a {
+          > span {
             display: inline-block !important;
-            padding: 5px 10px 5px 10px !important;
-            text-transform: none !important;
-            font-size: 0.7rem !important;
-            @include mobile {
-              font-size: 0.9rem !important;
+            padding: 0;
+            &.separator {
+              padding: 0;
             }
-            &,
-            &:visited {
-              color: white !important;
+            &.link {
+              padding: 5px 10px 5px 10px !important;
             }
-            &:focus,
-            &:hover {
-              color: white !important;
+            &.mobile-only {
+              display: none !important;
+              @include mobile {
+                display: inline-block !important;
+              }
+            }
+
+            > a {
+              display: inline-block !important;
+              text-transform: none !important;
+              font-size: 0.7rem !important;
+              @include mobile {
+                font-size: 0.9rem !important;
+              }
+              &,
+              &:visited {
+                color: white !important;
+              }
+              &:focus,
+              &:hover {
+                color: white !important;
+              }
             }
           }
         }
