@@ -1,0 +1,38 @@
+.flag-icon {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  width: 1.33333333em;
+  line-height: 1em;
+}
+.flag-icon:before {
+  content: '\00a0';
+}
+.flag-icon-fr {
+  background-image: url(/assets/flags/fr.svg);
+}
+.flag-icon-gb {
+  background-image: url(/assets/flags/gb.svg);
+}
+.language-switch {
+  font-size: 0.7rem;
+  padding-top: 3px;
+  a,
+  a:hover,
+  a:active,
+  a:visited {
+    color: white;
+    text-decoration: underline;
+    font-weight: normal;
+    &.is-active {
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    &:last-child {
+      margin-right: 0.5rem;
+    }
+  }
+}

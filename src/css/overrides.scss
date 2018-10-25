@@ -2,22 +2,21 @@
 
 @import 'colors';
 
-
-html{
+html {
   font-size: 18px !important;
-  
-    @include mobile{
-      font-size: 15px !important;
-      width: 100vw !important;
-      overflow-x: hidden;
-    }
+
+  @include mobile {
+    font-size: 15px !important;
+    width: 100vw !important;
+    overflow-x: hidden;
+  }
 }
 
-body.groupepoisson{
+body.groupepoisson {
   background-color: white !important;
   font-size: inherit !important;
 
-  .dropdown-menu{
+  .dropdown-menu {
     left: -35px;
     right: -35px;
     width: auto !important;
@@ -26,26 +25,32 @@ body.groupepoisson{
 
     > li > a:focus,
     > li > a:hover,
-    > li.sfHover > a{
+    > li.sfHover > a {
       background-color: $gray4 !important;
     }
   }
 
-  ul.sf-menu > li > ul > li > ul.dropdown-menu.submenu{
+  ul.sf-menu > li > ul > li > ul.dropdown-menu.submenu {
     min-width: 200px !important;
   }
 
-  ul.sf-menu li > a{
-    &, &:hover, &:active, &:visited{
+  ul.sf-menu li > a {
+    &,
+    &:hover,
+    &:active,
+    &:visited {
       color: $blue !important;
     }
-    &:hover{
+    &:hover {
       border-color: $green !important;
     }
   }
   ul.sf-menu li.active > a,
-  ul.sf-menu li.sfHover > a,{
-    &, &:hover, &:active, &:visited{
+  ul.sf-menu li.sfHover > a {
+    &,
+    &:hover,
+    &:active,
+    &:visited {
       color: $blue !important;
       border-color: $green !important;
     }
@@ -58,158 +63,156 @@ body.groupepoisson{
     background: $green;
   }
 
-
-  header{
+  header {
     border-bottom: 2px solid $blue !important;
 
-    > .heading-panel{
+    > .heading-panel {
       background-color: $gray;
-      @include mobile{
+      min-height: 20px;
+      @include mobile {
         display: none;
       }
     }
 
-    .navbar{
-        margin-bottom: 12px !important;
+    .navbar {
+      margin-bottom: 12px !important;
     }
   }
 
-  .stuck_container{
-    
-    .navbar{
+  .stuck_container {
+    .navbar {
       margin-bottom: 0 !important;
       height: 60px;
     }
 
-    .navbar-nav{
-      @include desktop(){
+    .navbar-nav {
+      @include desktop() {
         margin-top: 18px;
         font-size: 15px !important;
-        >li>a{
+        > li > a {
           padding-top: 5px;
           padding-bottom: 5px;
         }
       }
     }
-    
-    h1.navbar-brand{
 
+    h1.navbar-brand {
       margin-top: 10px !important;
 
-      @include mobile{
-        margin-top: 0 !important;   
+      @include mobile {
+        margin-top: 0 !important;
       }
       height: 60px;
       overflow: hidden;
 
-      .navbar-brand__logo-groupe-poisson{
+      .navbar-brand__logo-groupe-poisson {
         background-image: url('/assets/logos/groupe_poisson.jpg');
         background-size: contain;
         background-repeat: no-repeat;
         background-color: transparent;
-        height:60px;
-        width:250px;
+        height: 60px;
+        width: 250px;
       }
     }
 
-    .dropdown-menu{
-      box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    .dropdown-menu {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
       font-size: 15px !important;
       z-index: 1;
     }
-    
   }
 
-  .stuck_container.isStuck{
+  .stuck_container.isStuck {
     background-color: white !important;
     border-bottom: 2px solid $blue !important;
 
-
-
-    .navbar{
+    .navbar {
       margin-bottom: 0 !important;
     }
 
-    .navbar-nav{
-      @include desktop(){
+    .navbar-nav {
+      @include desktop() {
         margin-top: 18px !important;
         font-size: 15px !important;
-        >li>a{
+        > li > a {
           padding-top: 5px;
           padding-bottom: 5px;
         }
       }
     }
 
-    h1.navbar-brand{
-
+    h1.navbar-brand {
       margin-top: -7px;
       height: 60px;
       overflow: hidden;
 
-      .navbar-brand__logo-groupe-poisson{
+      .navbar-brand__logo-groupe-poisson {
         background-image: url('/assets/logos/groupe_poisson.jpg');
         background-size: contain;
         background-repeat: no-repeat;
         background-color: transparent;
-        height:60px;
-        width:250px;
+        height: 60px;
+        width: 250px;
       }
     }
   }
 
-  footer{
-    margin:0 !important;
+  footer {
+    margin: 0 !important;
     padding: 0 !important;
-    >section.footer__main-links{
-      @include mobile{
+    > section.footer__main-links {
+      @include mobile {
         padding-top: 15px !important;
         padding-bottom: 15px !important;
       }
       background-color: $blue !important;
-      >.container{
-        >p{
+      > .container {
+        > p {
           text-align: center;
-          >a{
+          > a {
             display: inline-block !important;
             padding: 5px 10px 5px 10px !important;
             text-transform: none !important;
-            font-size: .8rem !important;
-            @include mobile{
-              font-size: .9rem !important;
+            font-size: 0.8rem !important;
+            @include mobile {
+              font-size: 0.9rem !important;
             }
-            &, &:visited{
+            &,
+            &:visited {
               color: white !important;
             }
-            &:focus, &:hover{
+            &:focus,
+            &:hover {
               color: $gray !important;
             }
           }
         }
       }
     }
-  
-    >section.footer__secondary-links{
-      @include mobile{
+
+    > section.footer__secondary-links {
+      @include mobile {
         padding-top: 15px !important;
         padding-bottom: 15px !important;
       }
       background-color: $gray !important;
-      >.container{
-        >p{
+      > .container {
+        > p {
           text-align: center;
-          >a{
+          > a {
             display: inline-block !important;
             padding: 5px 10px 5px 10px !important;
             text-transform: none !important;
-            font-size: .7rem !important;
-            @include mobile{
-              font-size: .9rem !important;
+            font-size: 0.7rem !important;
+            @include mobile {
+              font-size: 0.9rem !important;
             }
-            &, &:visited{
+            &,
+            &:visited {
               color: white !important;
             }
-            &:focus, &:hover{
+            &:focus,
+            &:hover {
               color: white !important;
             }
           }
@@ -217,74 +220,78 @@ body.groupepoisson{
       }
     }
   }
-  
-  .toTop{
-    &, &:hover, &:visited, &:focus{
+
+  .toTop {
+    &,
+    &:hover,
+    &:visited,
+    &:focus {
       background-color: $blue !important;
       color: white !important;
     }
   }
-  
-  .bg-white{
+
+  .bg-white {
     background-color: white !important;
-    color: #3E3D40 !important;
+    color: #3e3d40 !important;
   }
 
-
-  h1, h2, h3, h4, h5, h6{
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     text-transform: none !important;
   }
 
-  *{
+  * {
     line-height: 135%;
   }
 
-  .breadcrumb{
+  .breadcrumb {
     font-size: 12px !important;
-    @include mobile{
+    @include mobile {
       display: none;
     }
   }
 }
 
-
-
 @import 'typography';
 
+@import 'components/address';
+@import 'components/breadcrumb';
+@import 'components/button';
+@import 'components/content';
+@import 'components/flags';
+@import 'components/flex-row';
+@import 'components/form';
+@import 'components/google-map';
+@import 'components/poles-blocks';
+@import 'components/section';
+@import 'components/text-box';
+@import 'components/title-section';
 
-@import "components/address";
-@import "components/breadcrumb";
-@import "components/button";
-@import "components/content";
-@import "components/flex-row";
-@import "components/form";
-@import "components/google-map";
-@import "components/poles-blocks";
-@import "components/section";
-@import "components/text-box";
-@import "components/title-section";
+@import 'pages/actualites';
+@import 'pages/entite';
+@import 'pages/index';
+@import 'pages/le-groupe';
+@import 'pages/nous-contacter.scss';
+@import 'pages/offre-emploi';
+@import 'pages/offres-emploi';
+@import 'pages/pole';
+@import 'pages/recrutement';
 
-@import "pages/actualites";
-@import "pages/entite";
-@import "pages/index";
-@import "pages/le-groupe";
-@import "pages/nous-contacter.scss";
-@import "pages/offre-emploi";
-@import "pages/offres-emploi";
-@import "pages/pole";
-@import "pages/recrutement";
-
-
-*{
+* {
   font-family: 'Roboto', sans-serif !important;
 }
 
-.clearfix{
+.clearfix {
   clear: both;
 }
 
-.rd-mobilepanel_title{
-  @include mobile{
+.rd-mobilepanel_title {
+  @include mobile {
     padding-top: 1rem !important;
     font-size: 1rem !important;
     white-space: nowrap;
