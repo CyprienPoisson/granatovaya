@@ -26,6 +26,14 @@
       {
         "source": "/en/job-vacancies/**",
         "function": "content"
+      },
+      {
+        "source": "/en/news.html",
+        "function": "content"
+      },
+      {
+        "source": "/en/news/**",
+        "function": "content"
       }
     ]
   },

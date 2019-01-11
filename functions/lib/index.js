@@ -16,8 +16,8 @@ appContent.get('/toutes-nos-actualites.html', serve_content_1.default.newsIndex)
 appContent.get('/actualites/:id/:slug', serve_content_1.default.newsPage);
 appContent.get('/offres-emploi.html', serve_content_1.default.jobsIndex);
 appContent.get('/offres-emploi/:id/:slug', serve_content_1.default.jobPage);
-appContent.get('/:language/toutes-nos-actualites.html', serve_content_1.default.newsIndex);
-appContent.get('/:language/actualites/:id/:slug', serve_content_1.default.newsPage);
+appContent.get('/:language/news.html', serve_content_1.default.newsIndex);
+appContent.get('/:language/news/:id/:slug', serve_content_1.default.newsPage);
 appContent.get('/:language/job-vacancies.html', serve_content_1.default.jobsIndex);
 appContent.get('/:language/job-vacancies/:id/:slug', serve_content_1.default.jobPage);
 exports.content = functions.https.onRequest(appContent);
