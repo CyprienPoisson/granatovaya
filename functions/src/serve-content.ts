@@ -1,23 +1,6 @@
 import * as admin from 'firebase-admin';
-import * as fs from 'fs';
-
-import Handlebars from 'handlebars';
-
-const subsidiaryLogos = {
-  'Akela Interim': 'akela.jpg',
-  'Axel Duval': 'axel_duval.jpg',
-  'Axel Sud': 'axel_sud.jpg',
-  'Brein Transports': 'brein_transports.jpg',
-  'Groupe Poisson': 'entite_groupepoisson.png',
-  'Marcel Equipment': 'logo-marcel-equipment-limited.jpg',
-  'Maintenance Service': 'maintenance_service.jpg',
-  Morel: 'morel.jpg',
-  'Poisson Formation': 'poisson_formation.jpg',
-  'Select Civil': 'select_civil.jpg',
-  SNDM: 'sndm.jpg',
-  'Terre-durable': 'terre_durable.jpg',
-  'Terre-net': 'terre_net.jpg'
-};
+import buildTemplate from './template';
+import buildPage from './page';
 
 let database = null;
 function initDatabase() {
@@ -56,22 +39,13 @@ async function newsIndex(req, res) {
     })
     .reverse();
 
-  const pathPrefix = language === 'fr' ? '' : `${language}/`;
-  const rawPage: string = fs
-    .readFileSync(`./pages/${pathPrefix}toutes-nos-actualites.html`)
-    .toString();
-  const templateString: string = fs
-    .readFileSync(`./templates/${pathPrefix}news-list.hbs`)
-    .toString();
-
-  Handlebars.registerHelper('subsidiaryLogo', function(subsidiary) {
-    return subsidiaryLogos[subsidiary];
+  const newsListHTML: string = buildTemplate('news-list', language, {
+    newsList
   });
 
-  const templateFunction = Handlebars.compile(templateString);
-
-  const newsListHTML: string = templateFunction({ newsList });
-  const result = rawPage.replace('NEWS_LIST', newsListHTML);
+  const result = buildPage('toutes-nos-actualites', language, [
+    [newsListHTML, /NEWS_LIST/]
+  ]);
 
   res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
   res.send(result);
@@ -107,24 +81,21 @@ async function newsPage(req, res) {
   const previousNews = newsList[newsPosition - 1];
   const nextNews = newsList[newsPosition + 1];
 
-  const pathPrefix = language === 'fr' ? '' : `${language}/`;
-  const rawPage: string = fs
-    .readFileSync(`./pages/${pathPrefix}actualite.html`)
-    .toString();
-  const templateString: string = fs
-    .readFileSync(`./templates/${pathPrefix}news-page.hbs`)
-    .toString();
-
-  Handlebars.registerHelper('subsidiaryLogo', function(subsidiary) {
-    return subsidiaryLogos[subsidiary];
+  const newsHTML: string = buildTemplate('news-page', language, {
+    news,
+    previousNews,
+    nextNews
   });
 
-  const templateFunction = Handlebars.compile(templateString);
+  const sharingMetas: string = buildTemplate('news-sharing-metas', language, {
+    news
+  });
 
-  const newsHTML: string = templateFunction({ news, previousNews, nextNews });
-  const result = rawPage
-    .replace('NEWS_CONTENT', newsHTML)
-    .replace(/NEWS_TITLE/g, news.title);
+  const result = buildPage('actualite', language, [
+    [sharingMetas, /SHARING_METAS/g],
+    [newsHTML, /NEWS_CONTENT/],
+    [news.title, /NEWS_TITLE/g]
+  ]);
 
   res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
   res.send(result);
@@ -153,22 +124,13 @@ async function jobsIndex(req, res) {
     })
     .reverse();
 
-  const pathPrefix = language === 'fr' ? '' : `${language}/`;
-  const rawPage: string = fs
-    .readFileSync(`./pages/${pathPrefix}offres-emploi.html`)
-    .toString();
-  const templateString: string = fs
-    .readFileSync(`./templates/${pathPrefix}jobs-list.hbs`)
-    .toString();
-
-  Handlebars.registerHelper('subsidiaryLogo', function(subsidiary) {
-    return subsidiaryLogos[subsidiary];
+  const jobsListHTML: string = buildTemplate('jobs-list', language, {
+    jobsList
   });
 
-  const templateFunction = Handlebars.compile(templateString);
-
-  const jobsListHTML: string = templateFunction({ jobsList });
-  const result = rawPage.replace('JOBS_LIST', jobsListHTML);
+  const result = buildPage('offres-emploi', language, [
+    [jobsListHTML, /JOBS_LIST/]
+  ]);
 
   res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
   res.send(result);
@@ -183,24 +145,19 @@ async function jobPage(req, res) {
   const snapshot = await db.ref(`content/jobOffers/${jobId}`).once('value');
   const job = snapshot.val();
 
-  const pathPrefix = language === 'fr' ? '' : `${language}/`;
-  const rawPage: string = fs
-    .readFileSync(`./pages/${pathPrefix}offre-emploi.html`)
-    .toString();
-  const templateString: string = fs
-    .readFileSync(`./templates/${pathPrefix}job-page.hbs`)
-    .toString();
-
-  Handlebars.registerHelper('subsidiaryLogo', function(subsidiary) {
-    return subsidiaryLogos[subsidiary];
+  const jobHTML: string = buildTemplate('job-page', language, {
+    job
   });
 
-  const templateFunction = Handlebars.compile(templateString);
+  const sharingMetas: string = buildTemplate('job-sharing-metas', language, {
+    job
+  });
 
-  const jobHTML: string = templateFunction({ job });
-  const result = rawPage
-    .replace('JOB_CONTENT', jobHTML)
-    .replace(/JOB_TITLE/g, job.title);
+  const result = buildPage('offre-emploi', language, [
+    [sharingMetas, /SHARING_METAS/g],
+    [jobHTML, /JOB_CONTENT/],
+    [job.title, /JOB_TITLE/g]
+  ]);
 
   res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800');
   res.send(result);
