@@ -1,16 +1,20 @@
-.has-content{
-  @include desktop{
+.has-content {
+  @include desktop {
     padding-top: $spacing;
   }
 }
-.content{
-
-  h1,h2,h3,h4,h5,h6{
+.content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 0 !important;
     margin-bottom: 1em !important;
   }
 
-  p{
+  p {
     @extend .text;
     @extend .is-size-2;
     margin-top: 0 !important;
@@ -19,64 +23,87 @@
     hyphens: auto;
   }
 
-  img{
+  img {
     margin-bottom: $spacing !important;
     max-width: 100%;
-    &.left{
-      @include desktop{
+    &.left {
+      @include desktop {
         float: left !important;
         margin-right: $spacing;
       }
     }
-    &.right{
-      @include desktop{
+    &.right {
+      @include desktop {
         float: right !important;
         margin-left: $spacing;
       }
     }
-  
-    &.is-one-quarter{
-      @include desktop{
+
+    &.is-one-quarter {
+      @include desktop {
         width: 25%;
       }
     }
-  
-    &.is-one-third{
-      @include desktop{
+
+    &.is-one-third {
+      @include desktop {
         width: 33%;
       }
     }
-    
-    &.is-half{
-      @include desktop{
+
+    &.is-half {
+      @include desktop {
         width: 50%;
       }
     }
 
-    @include mobile{
+    @include mobile {
       width: 100%;
     }
   }
 
-  ul{
+  ul {
     clear: left;
     margin-top: 0 !important;
     margin-bottom: $spacing !important;
     padding-left: $spacing !important;
-    li{
+    li {
       @extend .text;
       @extend .is-size-2;
       list-style: disc !important;
-      padding-bottom: .5em;
+      padding-bottom: 0.5em;
       hyphens: auto;
     }
   }
 }
 
-.content--sf-richtext{
+.content--sf-richtext {
   @extend .content;
 
-  p{
+  p {
     margin-bottom: 0 !important;
+  }
+
+  @include desktop {
+    p > img {
+      margin-top: $spacing;
+      margin-right: $spacing;
+    }
+    p:not([style*='center']):not([style*='right']) {
+      > img {
+        display: block;
+        float: left;
+        clear: both;
+        margin-right: $spacing;
+      }
+    }
+    p[style*='right'] {
+      > img {
+        display: block;
+        float: right;
+        clear: both;
+        margin-left: $spacing;
+      }
+    }
   }
 }
