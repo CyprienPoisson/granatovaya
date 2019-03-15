@@ -85,20 +85,20 @@
   }
 
   @include desktop {
-    p > img {
+    > p img {
       margin-top: $spacing;
       margin-right: $spacing;
     }
-    p:not([style*='center']):not([style*='right']) {
-      > img {
+    > p:not([style*='center']):not([style*='right']) {
+      img {
         display: block;
         float: left;
         clear: both;
         margin-right: $spacing;
       }
     }
-    p[style*='right'] {
-      > img {
+    > p[style*='right'] {
+      img {
         display: block;
         float: right;
         clear: both;
