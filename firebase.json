@@ -1,10 +1,11 @@
 {
   "hosting": {
+    "cleanUrls": true,
     "public": "dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
-        "source": "/toutes-nos-actualites.html",
+        "source": "/toutes-nos-actualites",
         "function": "content"
       },
       {
@@ -12,7 +13,7 @@
         "function": "content"
       },
       {
-        "source": "/offres-emploi.html",
+        "source": "/offres-emploi",
         "function": "content"
       },
       {
@@ -20,7 +21,7 @@
         "function": "content"
       },
       {
-        "source": "/en/job-vacancies.html",
+        "source": "/en/job-vacancies",
         "function": "content"
       },
       {
@@ -28,7 +29,7 @@
         "function": "content"
       },
       {
-        "source": "/en/news.html",
+        "source": "/en/news",
         "function": "content"
       },
       {

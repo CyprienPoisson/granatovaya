@@ -13,12 +13,12 @@ export const updateWebContent = functions.https.onRequest(uwc);
 
 import ServeContent from './serve-content';
 const appContent = express();
-appContent.get('/toutes-nos-actualites.html', ServeContent.newsIndex);
+appContent.get('/toutes-nos-actualites', ServeContent.newsIndex);
 appContent.get('/actualites/:id/:slug', ServeContent.newsPage);
-appContent.get('/offres-emploi.html', ServeContent.jobsIndex);
+appContent.get('/offres-emploi', ServeContent.jobsIndex);
 appContent.get('/offres-emploi/:id/:slug', ServeContent.jobPage);
-appContent.get('/:language/news.html', ServeContent.newsIndex);
+appContent.get('/:language/news', ServeContent.newsIndex);
 appContent.get('/:language/news/:id/:slug', ServeContent.newsPage);
-appContent.get('/:language/job-vacancies.html', ServeContent.jobsIndex);
+appContent.get('/:language/job-vacancies', ServeContent.jobsIndex);
 appContent.get('/:language/job-vacancies/:id/:slug', ServeContent.jobPage);
 export const content = functions.https.onRequest(appContent);
