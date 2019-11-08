@@ -1,19 +1,19 @@
-.actualites{
-  &__title-section{
+.actualites {
+  &__title-section {
     background-color: $green;
     color: $white;
-    @include mobile{
+    @include mobile {
       padding-top: 15px !important;
       padding-bottom: 15px !important;
-      div{
+      div {
         margin: 0 !important;
       }
     }
   }
 
-  &__articles-list{
-    .actualites{
-      &__article{
+  &__articles-list {
+    .actualites {
+      &__article {
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -22,72 +22,82 @@
         padding-bottom: 20px;
         border-bottom: 1px solid $gray2;
         overflow: hidden;
-        @include mobile{
+        @include mobile {
           display: block;
         }
       }
-      &__image{
+      &__image {
         flex: 0 0 auto;
         width: 120px;
         margin-right: 20px;
-        @include mobile{
+        @include mobile {
           display: none;
         }
       }
-      &__content{
+      &__content {
         flex: 1 1 auto;
         display: flex;
         flex-direction: column;
-        @include mobile{
+        @include mobile {
           display: block;
           width: 100%;
         }
       }
-      &__header{
+      &__header {
         flex: 0 0 auto;
         display: flex;
         flex-direction: row;
       }
-      &__title{
+      &__title {
         flex: 1 1 auto;
-        white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis;
         padding-right: $spacing;
-        @include mobile{
+        @include mobile {
           font-size: 1.2rem !important;
         }
       }
-      &__subsidiary{
+      &__subsidiary {
         flex: 0 0 auto;
-        > img{
+        > img {
           height: 40px;
 
-          @include mobile{
+          @include mobile {
             height: 25px;
           }
         }
       }
-      &__excerpt{
+      &__excerpt {
         display: block;
         position: relative;
         padding-top: 10px;
-        max-height: 70px;;
+        max-height: 70px;
         overflow: hidden;
         text-overflow: ellipsis;
-        &-mask{
+        &-mask {
           position: absolute;
           left: 0;
           right: 0;
           bottom: 0;
           height: 30px;
-          background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-          background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-          background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          background: -moz-linear-gradient(
+            top,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 100%
+          ); /* FF3.6-15 */
+          background: -webkit-linear-gradient(
+            top,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 100%
+          ); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 100%
+          ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
         }
       }
-      &__link{
+      &__link {
         display: block;
         padding-top: 10px;
         text-align: right;
@@ -96,15 +106,15 @@
   }
 }
 
-.actualite{
-  &__title-section{
-    @include mobile{
+.actualite {
+  &__title-section {
+    @include mobile {
       padding-top: 15px !important;
       padding-bottom: 15px !important;
     }
   }
-  &__article{
-    @include mobile{
+  &__article {
+    @include mobile {
       padding-top: 15px !important;
       padding-bottom: 15px !important;
     }
