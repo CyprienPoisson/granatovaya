@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import Handlebars from 'handlebars';
 
 const subsidiaryLogos = {
+  'Akela Consulting': 'akela.jpg',
   'Akela Interim': 'akela.jpg',
   'Axel Duval': 'axel_duval.jpg',
   'Axel Sud': 'axel_sud.jpg',
