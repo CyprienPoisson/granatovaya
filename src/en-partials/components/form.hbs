@@ -186,16 +186,12 @@
               document.querySelector('#sfws_form').remove();
               document.querySelector('#sfws_loading').style.display = 'none';
               document.querySelector('#sfws_success').style.display = 'block';
-              {{#if isJobOffer}}
-              // This does not work.
-              // Trigger a GA event instead.
-              // Find a way to trigger only for indeed conversions.
-              // Check their javascript tracker to see how they are doing it.
-                // Call Indeed.com tracking URL
-                // var indeedCall = new XMLHttpRequest();
-                // indeedCall.open("GET", "https://conv.indeed.com/pagead/conv/4261161367993511/", true);
-                // indeedCall.send(body);
-              {{/if}}
+              
+              var indeedTracker = document.createElement("img");
+              indeedTracker.setAttribute("src", "http://conv.indeed.com/pagead/conv/4261161367993511/?script=0");
+              indeedTracker.setAttribute("height", "1");
+              indeedTracker.setAttribute("width", "1");
+              document.querySelector('#sfws_success').appendChild("indeedTracker");
             }
             else{
               document.querySelector('#sfws_form').style.display = "block";
