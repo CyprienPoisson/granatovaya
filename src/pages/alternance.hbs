@@ -52,6 +52,28 @@
         </div>
     </section>
 
+    {{#*inline "main-block"}}
+        <div class="container wow fadeInUp">
+          <div class="flex-row flex-row--centered">
+            <div class="item-10 text-center">
+              <a id="candidature" ></a>
+              <h1>
+                Candidature en alternance
+              </h1>
+            <p class="text is-size-2">Vous pensez que vos compétences peuvent nous intéresser ? Vous souhaitez intégrer l'une des entités du Groupe Poisson en alternance ?
+               Joignez votre CV, parlez-nous de vous, précisez les conditions de votre contrat en alternance !  Nous vous recontacterons rapidement.
+            </p>
+            </div>
+          </div>
+          <div class="flex-row flex-row--centered">
+            <div class="item-10 text-center">
+              <input id="sfws_type" type="hidden" value="Candidature">
+              {{> components/form isJobOffer=true}}
+            </div>
+          </div>
+        </div>
+    </section>
+
       
   {{/inline}}
 
